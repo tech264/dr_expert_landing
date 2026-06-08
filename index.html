@@ -302,8 +302,6 @@
       50%      { opacity: .5; transform: scale(1.7); }
     }
 
-    .page-end { height: 72px; }
-
     /* ── FOOTER ── */
     footer {
       background: var(--black);
@@ -311,7 +309,7 @@
       text-align: center;
       padding: 20px;
       font-size: .78rem;
-      margin-bottom: 70px;
+      padding-bottom: 84px; /* clears the fixed sticky footer */
     }
     footer a { color: var(--yellow); text-decoration: none; }
     footer p + p { margin-top: 6px; }
@@ -504,9 +502,10 @@
 <!-- ═══════════════ URGENCY CARD ═══════════════ -->
 <div class="urgency-card">
   <p class="urg-text">
-    New batch starting this week.<br>
-    <strong>Limited seats only</strong><br>
-    (<span class="seats" id="seats-left">7 seats remaining</span>)
+    🚨 <strong>September 2026 Intake</strong><br>
+    Registrations are closing fast!<br>
+    Only <span class="seats" id="seats-left">7 seats remaining</span> left.<br>
+    <span style="font-size:.85rem;color:var(--grey);">Secure your seat before the deadline.</span>
   </p>
 
   <a class="btn-wa" href="https://wa.me/917025719000?text=Hi%2C%20I%20want%20to%20secure%20my%20MBBS%20abroad%20seat" target="_blank" rel="noopener">
@@ -538,8 +537,6 @@
   <p>© 2025 <a href="https://www.drexpertedu.com/" target="_blank" rel="noopener">Dr. Expert Edulinks</a> — All rights reserved</p>
   <p>📞 <a href="tel:+917025719000">+91 7025 719 000</a> &nbsp;|&nbsp; <a href="tel:+917025729000">+91 7025 729 000</a></p>
 </footer>
-
-<div class="page-end"></div>
 
 <!-- ═══════════════ STICKY FOOTER ═══════════════ -->
 <div class="sticky-footer" id="sticky-wa">
@@ -576,20 +573,17 @@
   function next() { goTo(cur + 1); }
   timer = setInterval(next, 4000);
 
-  /* ── Countdown timer (45 min, resets per session) ── */
+  /* ── Countdown to next hour boundary (repeats every hour) ── */
   (function () {
-    const KEY = 'dre_cd_end';
-    let end = parseInt(sessionStorage.getItem(KEY) || '0');
-    if (!end || end < Date.now()) {
-      end = Date.now() + 45 * 60 * 1000;
-      sessionStorage.setItem(KEY, end);
-    }
     const el = document.getElementById('countdown');
     function tick() {
-      const diff = Math.max(0, end - Date.now());
+      const now  = new Date();
+      const next = new Date(now);
+      next.setMinutes(60, 0, 0); // top of the next hour
+      const diff = Math.max(0, next - now);
       const m = Math.floor(diff / 60000);
       const s = Math.floor((diff % 60000) / 1000);
-      el.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+      el.textContent = String(m).padStart(2, '0') + 'm : ' + String(s).padStart(2, '0') + 's';
     }
     tick();
     setInterval(tick, 1000);
