@@ -45,28 +45,6 @@
     /* Logo — faithful SVG recreation of uploaded mark:
        Two overlapping squares (a larger square frame with a smaller
        offset square), creating the stacked-bracket icon in gold */
-    .logo-mark {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-    }
-
-    .brand-text { color: var(--white); line-height: 1.25; }
-    .brand-text strong {
-      font-size: 1.1rem;
-      font-weight: 900;
-      letter-spacing: .2px;
-      display: block;
-      color: var(--white);
-    }
-    .brand-text span {
-      font-size: .7rem;
-      color: var(--yellow);
-      font-weight: 700;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-    }
-
     /* ── HERO ── */
     .hero {
       background: var(--black);
@@ -329,24 +307,11 @@
 
 <!-- ═══════════════ HEADER ═══════════════ -->
 <header>
-  <!--
-    Logo mark: faithful recreation of the uploaded icon —
-    a larger open square (frame) with a smaller square overlapping
-    from the bottom-right corner, both in #febf1b gold.
-  -->
-  <svg class="logo-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dr. Expert Edulinks logo">
-    <!-- Outer square frame (top-left shape) -->
-    <rect x="4"  y="4"  width="26" height="26" rx="2" fill="none" stroke="#febf1b" stroke-width="5"/>
-    <!-- Inner filled square (bottom-right overlap) -->
-    <rect x="18" y="18" width="26" height="26" rx="2" fill="#febf1b"/>
-    <!-- Punch out top-left corner of inner square so overlap reads correctly -->
-    <rect x="18" y="18" width="12" height="12" fill="none"/>
-  </svg>
-
-  <div class="brand-text">
-    <strong>Dr. Expert Edulinks</strong>
-    <span>MBBS Abroad Admissions</span>
-  </div>
+  <img
+    src="https://www.drexpertedu.com/_next/image/?url=%2Fimages%2Flogo.png&w=256&q=75"
+    alt="Dr. Expert Edulinks"
+    style="height:48px;width:auto;display:block;"
+  />
 </header>
 
 <!-- ═══════════════ HERO ═══════════════ -->
