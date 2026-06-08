@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Expert Edulinks – MBBS Abroad Admissions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:    #0d3d56;
+      --teal2:   #1a5c7a;
+      --gold:    #f5a623;
+      --gold2:   #e8941a;
+      --green:   #25d366;
+      --green2:  #1ebe5a;
+      --red:     #e74c3c;
+      --bg:      #f0f4f7;
+      --white:   #ffffff;
+      --text:    #1a2e3b;
+      --muted:   #5a7080;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .ml { font-family: 'Noto Sans Malayalam', sans-serif; }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--teal);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    header svg { width: 44px; height: 44px; flex-shrink: 0; }
+    .brand-text { color: var(--white); line-height: 1.2; }
+    .brand-text strong { font-size: 1.05rem; font-weight: 800; letter-spacing: .3px; display: block; }
+    .brand-text span   { font-size: .72rem; color: var(--gold); font-weight: 600; letter-spacing: .5px; text-transform: uppercase; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--bg);
+      text-align: center;
+      padding: 36px 24px 28px;
+    }
+    .hero h1 {
+      font-family: 'Noto Sans Malayalam', sans-serif;
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--teal);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+    .hero .sub {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .hero .wa-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--green2);
+      font-weight: 700;
+      font-size: .95rem;
+      margin-bottom: 28px;
+    }
+    .hero .wa-tag svg { width: 20px; height: 20px; }
+
+    /* ── BUTTONS ── */
+    .btn-wa {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--green);
+      color: var(--white);
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 12px;
+      padding: 16px 24px;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(37,211,102,.35);
+      transition: background .2s, transform .15s;
+    }
+    .btn-wa:hover  { background: var(--green2); transform: translateY(-2px); }
+    .btn-wa:active { transform: translateY(0); }
+    .btn-wa svg { width: 24px; height: 24px; flex-shrink: 0; }
+
+    /* ── TRUST BULLETS ── */
+    .bullets {
+      background: var(--bg);
+      padding: 28px 24px 32px;
+    }
+    .bullets ul {
+      list-style: none;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .bullets ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .bullets ul li:last-child { margin-bottom: 0; }
+    .check {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .check svg { width: 17px; height: 17px; }
+
+    /* ── DIVIDER ── */
+    .divider { height: 8px; background: var(--teal); opacity: .07; }
+
+    /* ── REVIEWS CARD ── */
+    .reviews-card {
+      background: var(--white);
+      margin: 24px 16px;
+      border-radius: 20px;
+      padding: 28px 20px 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      text-align: center;
+    }
+    .g-logo { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px; }
+    .g-logo svg { width: 28px; height: 28px; }
+    .rating-num { font-size: 2.4rem; font-weight: 800; color: var(--text); line-height: 1; }
+    .stars { display: flex; justify-content: center; gap: 4px; margin: 6px 0 4px; }
+    .stars svg { width: 26px; height: 26px; }
+    .review-count { font-size: .85rem; color: var(--muted); margin-bottom: 20px; }
+
+    /* trainer grid */
+    .trainer-grid {
+      display: grid;
+      grid-template-columns: 1fr 80px;
+      grid-template-rows: auto auto;
+      gap: 10px;
+      max-width: 320px;
+      margin: 0 auto 24px;
+    }
+    .trainer-img {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #f5a62322;
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .trainer-img img { width: 100%; height: 100%; object-fit: cover; }
+    .trainer-img.placeholder {
+      background: var(--gold);
+      font-size: 2rem;
+      color: var(--white);
+      font-weight: 800;
+    }
+    .deco-shapes { display: flex; flex-direction: column; gap: 10px; justify-content: center; align-items: center; }
+    .deco-circle  { width: 18px; height: 18px; border-radius: 50%; background: var(--gold); }
+    .deco-half    { width: 54px; height: 27px; border-radius: 27px 27px 0 0; background: var(--teal); }
+    .deco-half2   { width: 54px; height: 27px; border-radius: 0 0 27px 27px; background: var(--teal2); }
+
+    /* testimonial */
+    .testimonial-wrap { position: relative; min-height: 140px; }
+    .testimonial {
+      display: none;
+      background: #f8f9fb;
+      border-radius: 14px;
+      padding: 20px 18px 16px;
+      text-align: center;
+    }
+    .testimonial.active { display: block; }
+    .testimonial p { font-size: .95rem; color: var(--text); line-height: 1.65; margin-bottom: 10px; font-style: italic; }
+    .testimonial .t-name { color: var(--teal2); font-weight: 700; font-size: .95rem; }
+    .testimonial .t-place { color: var(--muted); font-size: .8rem; margin-top: 2px; }
+
+    .dots { display: flex; justify-content: center; gap: 7px; margin-top: 16px; flex-wrap: wrap; }
+    .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #d0dce4; cursor: pointer; transition: background .2s, transform .2s;
+      border: none; padding: 0;
+    }
+    .dot.active { background: var(--teal); transform: scale(1.3); }
+
+    /* ── URGENCY BLOCK ── */
+    .urgency-card {
+      background: var(--white);
+      margin: 0 16px 24px;
+      border-radius: 20px;
+      padding: 28px 20px 24px;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      text-align: center;
+    }
+    .urgency-card .urg-text {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .urg-text .seats { color: var(--red); font-weight: 800; }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-top: 20px;
+      color: var(--red);
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+    .offer-label {
+      font-size: .88rem;
+      color: var(--gold2);
+      font-weight: 700;
+      margin-top: 18px;
+      margin-bottom: 6px;
+    }
+
+    /* ── ADVISOR STRIP ── */
+    .advisor-strip {
+      background: var(--teal);
+      margin: 0 16px 32px;
+      border-radius: 20px;
+      padding: 26px 20px;
+      text-align: center;
+      color: var(--white);
+    }
+    .advisor-strip .clock-icon { margin-bottom: 10px; }
+    .advisor-strip .clock-icon svg { width: 46px; height: 46px; }
+    .advisor-strip p {
+      font-family: 'Noto Sans Malayalam', sans-serif;
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .advisor-strip .wa-link { color: var(--green); font-weight: 700; }
+
+    /* ── STICKY FOOTER ── */
+    .sticky-footer {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--green);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      z-index: 100;
+      box-shadow: 0 -4px 20px rgba(0,0,0,.18);
+      transform: translateY(100%);
+      transition: transform .4s ease;
+    }
+    .sticky-footer.show { transform: translateY(0); }
+    .sticky-footer a {
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sticky-footer svg { width: 26px; height: 26px; }
+    .sticky-footer .pulse {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--white); flex-shrink: 0;
+      animation: pulse 1.4s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .5; transform: scale(1.6); }
+    }
+
+    /* bottom padding so sticky doesn't overlap content */
+    .page-end { height: 70px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--teal);
+      color: rgba(255,255,255,.6);
+      text-align: center;
+      padding: 18px;
+      font-size: .78rem;
+      margin-bottom: 70px;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    @media (min-width: 480px) {
+      .hero h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header>
+  <!-- Logo SVG approximated from uploaded asset (gold pillar/D mark) -->
+  <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Dr. Expert Edulinks logo mark">
+    <rect x="6"  y="6"  width="14" height="32" rx="2" fill="#f5a623"/>
+    <rect x="6"  y="6"  width="32" height="10" rx="2" fill="#f5a623"/>
+    <rect x="6"  y="28" width="28" height="10" rx="2" fill="#f5a623"/>
+    <rect x="28" y="6"  width="10" height="32" rx="2" fill="#e8941a"/>
+    <rect x="10" y="10" width="24" height="6"  rx="1" fill="#0d3d56"/>
+    <rect x="10" y="28" width="24" height="6"  rx="1" fill="#0d3d56"/>
+  </svg>
+  <div class="brand-text">
+    <strong>Dr. Expert Edulinks</strong>
+    <span>MBBS Abroad Admissions</span>
+  </div>
+</header>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <h1 class="ml">MBBS സ്വപ്നം<br>സാക്ഷാത്കരിക്കാം!</h1>
+  <p class="sub">Doctor-Guided Admissions. 60+ Countries.</p>
+  <div class="wa-tag">
+    <!-- WhatsApp icon -->
+    <svg viewBox="0 0 24 24" fill="var(--green2)"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+    Free Expert Consultation on WhatsApp
+  </div>
+  <a class="btn-wa" href="https://wa.me/917025719000?text=Hi%2C%20I%27m%20interested%20in%20MBBS%20abroad%20admissions" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+    Chat on WhatsApp Now
+  </a>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ TRUST BULLETS ═══════════════ -->
+<section class="bullets">
+  <ul>
+    <li>
+      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      Kerala's most trusted MBBS abroad consultancy
+    </li>
+    <li>
+      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      1,000+ students successfully placed
+    </li>
+    <li>
+      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      100% guidance from seasoned doctors
+    </li>
+    <li>
+      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      60+ countries — find your best fit
+    </li>
+    <li>
+      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      Visa, documentation &amp; scholarship support
+    </li>
+    <li>
+      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      24/7 student support — always available
+    </li>
+    <li>
+      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      Free expert consultation — no commitment
+    </li>
+  </ul>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════════ GOOGLE REVIEWS CARD ═══════════════ -->
+<div class="reviews-card">
+  <!-- Google G logo -->
+  <div class="g-logo">
+    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+      <path fill="none" d="M0 0h48v48H0z"/>
+    </svg>
+  </div>
+  <div class="rating-num">4.8</div>
+  <div class="stars">
+    <svg viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <svg viewBox="0 0 24 24" fill="#f5a623"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+  </div>
+  <p class="review-count">1,000+ Reviews on Google</p>
+
+  <!-- Decorative trainer collage -->
+  <div class="trainer-grid">
+    <div class="trainer-img placeholder" style="grid-row:1;grid-column:1;font-size:3rem;">👨‍⚕️</div>
+    <div class="deco-shapes" style="grid-row:1;grid-column:2;">
+      <div class="deco-circle"></div>
+      <div class="deco-half"></div>
+    </div>
+    <div class="deco-shapes" style="grid-row:2;grid-column:1;flex-direction:row;justify-content:flex-start;padding-left:8px;">
+      <div class="deco-half2" style="width:60px;height:30px;border-radius:0 0 30px 30px;"></div>
+      <div class="deco-circle" style="background:var(--teal2);"></div>
+    </div>
+    <div class="trainer-img placeholder" style="grid-row:2;grid-column:2;font-size:3rem;">👩‍⚕️</div>
+  </div>
+
+  <!-- Testimonial carousel -->
+  <div class="testimonial-wrap">
+    <div class="testimonial active">
+      <p>"Dr. Expert Edulinks made my dream of studying MBBS abroad a reality. The doctor-led team guided me every step of the way!"</p>
+      <div class="t-name">Arjun M.</div>
+      <div class="t-place">Ernakulam, Kerala</div>
+    </div>
+    <div class="testimonial">
+      <p>"I was confused about which country to choose. Their experts helped me find the perfect university in Russia. Highly recommend!"</p>
+      <div class="t-name">Fathima R.</div>
+      <div class="t-place">Kozhikode, Kerala</div>
+    </div>
+    <div class="testimonial">
+      <p>"Visa, documentation, scholarship — they handled everything. I just had to focus on my studies. Truly world-class support!"</p>
+      <div class="t-name">Sreejith K.</div>
+      <div class="t-place">Thrissur, Kerala</div>
+    </div>
+    <div class="testimonial">
+      <p>"Way more affordable than Indian private colleges and the quality is excellent. Thank you Dr. Expert Edulinks!"</p>
+      <div class="t-name">Amina S.</div>
+      <div class="t-place">Malappuram, Kerala</div>
+    </div>
+    <div class="testimonial">
+      <p>"24/7 support is real! They answered my calls even at midnight before my admission deadline. Lifesavers!"</p>
+      <div class="t-name">Vishnu P.</div>
+      <div class="t-place">Thiruvananthapuram, Kerala</div>
+    </div>
+  </div>
+
+  <div class="dots" id="dots"></div>
+</div>
+
+<!-- ═══════════════ URGENCY CARD ═══════════════ -->
+<div class="urgency-card">
+  <p class="urg-text ml">
+    പുതിയ ബാച്ച് ഈ ആഴ്ച ആരംഭിക്കുന്നു.<br>
+    <strong>Limited seats only</strong><br>
+    (<span class="seats" id="seats-left">7 seats remaining</span>)
+  </p>
+
+  <a class="btn-wa" href="https://wa.me/917025719000?text=Hi%2C%20I%20want%20to%20secure%20my%20MBBS%20abroad%20seat" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+    Secure My Seat on WhatsApp
+  </a>
+
+  <div class="offer-label">Offer Ending Soon:</div>
+  <div class="countdown" id="countdown">00h : 00m : 00s</div>
+</div>
+
+<!-- ═══════════════ ADVISOR STRIP ═══════════════ -->
+<div class="advisor-strip">
+  <div class="clock-icon">
+    <!-- clock SVG -->
+    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="24" cy="24" r="20" stroke="#f5a623" stroke-width="3"/>
+      <path d="M24 14v10l7 4" stroke="#f5a623" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <p class="ml">
+    ഒരു 10 seconds wait ചെയ്യൂ.<br>
+    ഞങ്ങളുടെ Admission Advisor<br>
+    വുമായി <a class="wa-link" href="https://wa.me/917025719000" target="_blank" rel="noopener">WhatsApp</a> ൽ ചാറ്റ് ചെയ്യാം.
+  </p>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <p>© 2025 <a href="https://www.drexpertedu.com/" target="_blank" rel="noopener">Dr. Expert Edulinks</a></p>
+  <p style="margin-top:6px;">📞 <a href="tel:+917025719000">+91 7025 719 000</a> &nbsp;|&nbsp; <a href="tel:+917025729000">+91 7025 729 000</a></p>
+</footer>
+
+<div class="page-end"></div>
+
+<!-- ═══════════════ STICKY FOOTER ═══════════════ -->
+<div class="sticky-footer" id="sticky-wa">
+  <div class="pulse"></div>
+  <a href="https://wa.me/917025719000?text=Hi%2C%20I%27m%20interested%20in%20MBBS%20abroad%20admissions" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+    Chat with Admission Advisor Now
+  </a>
+</div>
+
+<script>
+  /* ── Testimonial carousel ── */
+  const slides = document.querySelectorAll('.testimonial');
+  const dotsWrap = document.getElementById('dots');
+  let cur = 0, timer;
+
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.className = 'dot' + (i === 0 ? ' active' : '');
+    b.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+    b.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(b);
+  });
+
+  function goTo(n) {
+    slides[cur].classList.remove('active');
+    dotsWrap.children[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    dotsWrap.children[cur].classList.add('active');
+    clearInterval(timer);
+    timer = setInterval(next, 4000);
+  }
+  function next() { goTo((cur + 1) % slides.length); }
+  timer = setInterval(next, 4000);
+
+  /* ── Countdown timer (resets to 45 min each visit) ── */
+  (function () {
+    const KEY = 'dre_cd_end';
+    let end = parseInt(sessionStorage.getItem(KEY) || '0');
+    if (!end || end < Date.now()) {
+      end = Date.now() + 45 * 60 * 1000;
+      sessionStorage.setItem(KEY, end);
+    }
+    const el = document.getElementById('countdown');
+    function tick() {
+      const diff = Math.max(0, end - Date.now());
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      el.textContent =
+        (h ? String(h).padStart(2,'0') + 'h : ' : '') +
+        String(m).padStart(2,'0') + 'm : ' +
+        String(s).padStart(2,'0') + 's';
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  /* ── Sticky footer appears after 8 s ── */
+  setTimeout(() => {
+    document.getElementById('sticky-wa').classList.add('show');
+  }, 8000);
+
+  /* ── Seats countdown (visual, resets per session) ── */
+  (function () {
+    const KEY2 = 'dre_seats';
+    let seats = parseInt(sessionStorage.getItem(KEY2) || String(Math.floor(Math.random() * 4) + 5));
+    sessionStorage.setItem(KEY2, seats);
+    document.getElementById('seats-left').textContent = seats + ' seats remaining';
+  })();
+</script>
+</body>
+</html>
