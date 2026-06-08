@@ -176,22 +176,40 @@
     .review-count { font-size: .85rem; color: var(--grey); margin-bottom: 22px; font-weight: 600; }
 
     /* testimonial */
-    .testimonial-wrap { position: relative; min-height: 150px; }
+    .testimonial-wrap { position: relative; }
     .testimonial {
       display: none;
       background: #f9f9f9;
       border-radius: 14px;
-      padding: 20px 18px 16px;
-      text-align: center;
+      padding: 18px 16px 16px;
+      text-align: left;
       border-left: 4px solid var(--yellow);
     }
     .testimonial.active { display: block; }
-    .testimonial p {
-      font-size: .95rem; color: var(--black); line-height: 1.7;
-      margin-bottom: 10px; font-style: italic;
+    .t-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
     }
+    .t-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 1rem; color: var(--white);
+      flex-shrink: 0; overflow: hidden;
+    }
+    .t-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .t-meta { flex: 1; }
     .testimonial .t-name { color: var(--black); font-weight: 800; font-size: .95rem; }
-    .testimonial .t-place { color: var(--grey); font-size: .8rem; margin-top: 2px; }
+    .t-reviews-count { color: var(--grey); font-size: .75rem; margin-top: 1px; }
+    .t-stars { display: flex; align-items: center; gap: 3px; margin-bottom: 2px; flex-wrap: wrap; }
+    .t-stars svg { width: 14px; height: 14px; }
+    .t-ago { color: var(--grey); font-size: .75rem; margin-left: 4px; }
+    .testimonial p {
+      font-size: .9rem; color: var(--black); line-height: 1.7;
+      margin-top: 8px;
+    }
 
     .dots { display: flex; justify-content: center; gap: 7px; margin-top: 16px; flex-wrap: wrap; }
     .dot {
@@ -310,7 +328,7 @@
   <img
     src="https://www.drexpertedu.com/_next/image/?url=%2Fimages%2Flogo.png&w=256&q=75"
     alt="Dr. Expert Edulinks"
-    style="height:48px;width:auto;display:block;"
+    style="height:72px;width:auto;display:block;"
   />
 </header>
 
@@ -398,31 +416,87 @@
   <p class="review-count">1,000+ Reviews on Google</p>
 
   <div class="testimonial-wrap">
+
+    <!-- Review 1 — Jumi -->
     <div class="testimonial active">
-      <p>"Dr. Expert Edulinks made my dream of studying MBBS abroad a reality. The doctor-led team guided me every step of the way!"</p>
-      <div class="t-name">Arjun M.</div>
-      <div class="t-place">Ernakulam, Kerala</div>
+      <div class="t-header">
+        <div class="t-avatar" style="background:#6b7280;">J</div>
+        <div class="t-meta">
+          <div class="t-name">Jumi</div>
+          <div class="t-reviews-count">1 review</div>
+        </div>
+      </div>
+      <div class="t-stars">
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span class="t-ago">· 8 months ago</span>
+      </div>
+      <p>Choosing Dr. Expert Edulinks was the best decision for my MBBS abroad journey. From the first day itself, their team guided me like a family — with clear information, proper counseling, and step-by-step support. They took care of everything, from admission and documents to visa process, making it stress-free for me and my parents. Truly the best consultancy in Kerala for MBBS abroad.</p>
     </div>
+
+    <!-- Review 2 — Fidha Latheef -->
     <div class="testimonial">
-      <p>"I was confused about which country to choose. Their experts helped me find the perfect university in Russia. Highly recommend!"</p>
-      <div class="t-name">Fathima R.</div>
-      <div class="t-place">Kozhikode, Kerala</div>
+      <div class="t-header">
+        <div class="t-avatar" style="background:#e91e63;">F</div>
+        <div class="t-meta">
+          <div class="t-name">Fidha Latheef</div>
+          <div class="t-reviews-count">5 reviews · 5 photos</div>
+        </div>
+      </div>
+      <div class="t-stars">
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span class="t-ago">· 8 months ago</span>
+      </div>
+      <p>No doubt the finest mbbs consultants in Kerala. Their services are top notch. They provide us with clear directions right from the beginning. Being anxious guardians the moral and technical support they provide are commendable. They clear all our queries promptly. Without doubt it is the best mbbs consultancy in Kerala.</p>
     </div>
+
+    <!-- Review 3 — Firoz Babu -->
     <div class="testimonial">
-      <p>"Visa, documentation, scholarship — they handled everything. I just had to focus on my studies. Truly world-class support!"</p>
-      <div class="t-name">Sreejith K.</div>
-      <div class="t-place">Thrissur, Kerala</div>
+      <div class="t-header">
+        <div class="t-avatar" style="background:#1565c0;">F</div>
+        <div class="t-meta">
+          <div class="t-name">Firoz Babu</div>
+          <div class="t-reviews-count">3 reviews</div>
+        </div>
+      </div>
+      <div class="t-stars">
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span class="t-ago">· 8 months ago</span>
+      </div>
+      <p>#Best MBBS abroad consultancy in India. The way how Dr.Expert supported us to reach up to the day today that my son is ready to fly to Cairo University, Egypt tomorrow to pursue his MBBS education is excellent and more than expected. We hope to receive the same and better support through out our children's education in Egypt. Thank you Dr. Expert Team!</p>
     </div>
+
+    <!-- Review 4 — nistil rooy -->
     <div class="testimonial">
-      <p>"Way more affordable than Indian private colleges and the quality is excellent. Thank you Dr. Expert Edulinks!"</p>
-      <div class="t-name">Amina S.</div>
-      <div class="t-place">Malappuram, Kerala</div>
+      <div class="t-header">
+        <div class="t-avatar" style="background:#1565c0;">n</div>
+        <div class="t-meta">
+          <div class="t-name">nistil rooy</div>
+          <div class="t-reviews-count">1 review</div>
+        </div>
+      </div>
+      <div class="t-stars">
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span class="t-ago">· 8 months ago</span>
+      </div>
+      <p>Really happy with their service! This is truly the best MBBS abroad consultancy in Calicut and probably the best MBBS abroad education consultancy in Kerala. The team gives great guidance, very supportive, and they make the process smooth. Definitely among the top education consultants in Kerala. If you're looking for MBBS admission consultants in Calicut, this is the right place!</p>
     </div>
-    <div class="testimonial">
-      <p>"24/7 support is real! They answered my calls even at midnight before my admission deadline. Absolute lifesavers!"</p>
-      <div class="t-name">Vishnu P.</div>
-      <div class="t-place">Thiruvananthapuram, Kerala</div>
-    </div>
+
   </div>
   <div class="dots" id="dots"></div>
 </div>
