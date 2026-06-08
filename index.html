@@ -504,7 +504,7 @@
   <p class="urg-text">
     🚨 <strong>September 2026 Intake</strong><br>
     Registrations are closing fast!<br>
-    Only <span class="seats" id="seats-left">7 seats remaining</span> left.<br>
+    <span id="seats-left">23 students enquired in the last 1 hour</span><br>
     <span style="font-size:.85rem;color:var(--grey);">Secure your seat before the deadline.</span>
   </p>
 
@@ -592,13 +592,6 @@
   /* ── Sticky footer after 8 s ── */
   setTimeout(() => document.getElementById('sticky-wa').classList.add('show'), 8000);
 
-  /* ── Seats (random 5–8, stable per session) ── */
-  (function () {
-    const KEY = 'dre_seats';
-    let seats = parseInt(sessionStorage.getItem(KEY) || '0');
-    if (!seats) { seats = Math.floor(Math.random() * 4) + 5; sessionStorage.setItem(KEY, seats); }
-    document.getElementById('seats-left').textContent = seats + ' seats remaining';
-  })();
 </script>
 </body>
 </html>
