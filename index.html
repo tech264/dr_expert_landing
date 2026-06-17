@@ -1,29 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=375, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Dr. Expert Edulinks – MBBS Abroad Admissions</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1186046889131663');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1186046889131663');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,7 +37,6 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
       --yellow2: #f0b010;
       --green:   #25d366;
       --green2:  #1ebe5a;
-      --red:     #ff4d4d;
       --white:   #ffffff;
       --grey:    #a0a0a0;
       --bg:      #f5f5f5;
@@ -56,37 +56,42 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 14px;
       border-bottom: 3px solid var(--yellow);
     }
 
-    /* Logo — faithful SVG recreation of uploaded mark:
-       Two overlapping squares (a larger square frame with a smaller
-       offset square), creating the stacked-bracket icon in gold */
     /* ── HERO ── */
     .hero {
       background: var(--black);
       text-align: center;
-      padding: 40px 24px 36px;
+      padding: 36px 24px 20px;
     }
     .hero h1 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 900;
       color: var(--white);
       line-height: 1.25;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
-    .hero h1 span { color: var(--yellow); }
+    .hero h1 .highlight {
+      color: var(--yellow);
+      background: rgba(254,191,27,.12);
+      border-radius: 8px;
+      padding: 2px 8px;
+      display: inline;
+    }
     .hero .sub {
-      font-size: 1rem;
+      font-size: .95rem;
       color: var(--grey);
-      margin-bottom: 28px;
       font-weight: 500;
-      line-height: 1.6;
+      line-height: 1.7;
+      margin-bottom: 0;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    .hero .sub strong { color: var(--yellow); font-weight: 700; }
+    .hero .sub strong { color: var(--white); font-weight: 700; }
 
-    /* ── BUTTONS ── */
+    /* ── WA BUTTON ── */
     .btn-wa {
       display: flex;
       align-items: center;
@@ -104,38 +109,74 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
       margin: 0 auto;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 4px 24px rgba(37,211,102,.3);
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,.35);
       transition: background .2s, transform .15s, box-shadow .2s;
     }
-    .btn-wa:hover  { background: var(--green2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,.4); }
+    .btn-wa:hover  { background: var(--green2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,.45); }
     .btn-wa:active { transform: translateY(0); }
     .btn-wa svg { width: 24px; height: 24px; flex-shrink: 0; }
 
-    /* ── BADGE ROW ── */
-    .badges {
+    /* ── WA SECTION ── */
+    .wa-section {
+      background: var(--black);
+      padding: 12px 20px 16px;
       display: flex;
       justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-      padding: 0 16px;
-    }
-    .badge {
-      background: var(--black3);
-      border: 1.5px solid var(--yellow);
-      color: var(--yellow);
-      font-size: .72rem;
-      font-weight: 700;
-      padding: 6px 12px;
-      border-radius: 100px;
-      letter-spacing: .3px;
     }
 
-    /* ── SECTION LABEL ── */
-    .section-wrap { padding: 32px 16px 8px; }
+    /* ── BADGES ── */
+    .badges-section {
+      background: var(--black);
+      padding: 0 20px 28px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      color: var(--grey);
+      font-size: .78rem;
+      font-weight: 600;
+    }
+
+    /* ── TRUST CARDS ── */
+    .trust-section {
+      background: var(--black);
+      padding: 0 20px 32px;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .trust-card {
+      background: var(--black3);
+      border: 1.5px solid var(--yellow);
+      border-radius: 14px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .trust-card .val {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--yellow);
+      line-height: 1;
+    }
+    .trust-card .lbl {
+      font-size: .7rem;
+      font-weight: 700;
+      color: var(--grey);
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── SECTION SHARED ── */
     .section-label {
       text-align: center;
-      font-size: .72rem;
+      font-size: .7rem;
       font-weight: 800;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -143,27 +184,25 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
       margin-bottom: 18px;
     }
 
-    /* ── TRUST BULLETS ── */
-    .bullets { background: var(--white); padding: 28px 24px 32px; }
-    .bullets ul { list-style: none; max-width: 480px; margin: 0 auto; }
-    .bullets ul li {
+    /* ── WHY CHOOSE US ── */
+    .why-section {
+      background: var(--white);
+      padding: 32px 24px;
+    }
+    .why-section ul { list-style: none; max-width: 480px; margin: 0 auto 24px; }
+    .why-section ul li {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 18px;
-      font-size: 1rem;
-      font-weight: 700;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: .97rem;
+      font-weight: 600;
       color: var(--black);
-      line-height: 1.4;
+      line-height: 1.5;
     }
-    .bullets ul li:last-child { margin-bottom: 0; }
-    .check {
-      width: 34px; height: 34px; border-radius: 50%;
-      background: var(--black);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 1px;
-    }
-    .check svg { width: 16px; height: 16px; }
+    .why-section ul li:last-child { margin-bottom: 0; }
+    .chk { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; }
+    .chk svg { width: 18px; height: 18px; }
 
     /* ── STRIPE ── */
     .stripe {
@@ -173,43 +212,35 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
       font-size: .9rem;
       font-weight: 800;
       color: var(--black);
-      letter-spacing: .2px;
     }
 
-    /* ── REVIEWS CARD ── */
-    .reviews-card {
+    /* ── REVIEWS ── */
+    .reviews-section {
       background: var(--white);
-      margin: 20px 16px;
-      border-radius: 20px;
-      padding: 28px 20px 24px;
-      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      padding: 32px 20px;
+    }
+    .reviews-inner {
+      max-width: 480px;
+      margin: 0 auto;
       text-align: center;
-      border-top: 4px solid var(--yellow);
     }
     .g-logo { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 8px; }
-    .g-logo svg { width: 28px; height: 28px; }
-    .rating-num { font-size: 2.6rem; font-weight: 900; color: var(--black); line-height: 1; }
+    .g-logo svg { width: 24px; height: 24px; }
+    .rating-num { font-size: 2.4rem; font-weight: 900; color: var(--black); line-height: 1; }
     .stars { display: flex; justify-content: center; gap: 4px; margin: 6px 0 4px; }
-    .stars svg { width: 26px; height: 26px; }
-    .review-count { font-size: .85rem; color: var(--grey); margin-bottom: 22px; font-weight: 600; }
+    .stars svg { width: 22px; height: 22px; }
+    .review-count { font-size: .82rem; color: var(--grey); font-weight: 600; margin-bottom: 20px; }
 
-    /* testimonial */
-    .testimonial-wrap { position: relative; }
     .testimonial {
       display: none;
       background: #f9f9f9;
       border-radius: 14px;
-      padding: 18px 16px 16px;
+      padding: 18px 16px;
       text-align: left;
       border-left: 4px solid var(--yellow);
     }
     .testimonial.active { display: block; }
-    .t-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
+    .t-header { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
     .t-avatar {
       width: 42px; height: 42px; border-radius: 50%;
       background: var(--black);
@@ -218,78 +249,83 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
       flex-shrink: 0; overflow: hidden;
     }
     .t-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .t-meta { flex: 1; }
-    .testimonial .t-name { color: var(--black); font-weight: 800; font-size: .95rem; }
-    .t-reviews-count { color: var(--grey); font-size: .75rem; margin-top: 1px; }
-    .t-stars { display: flex; align-items: center; gap: 3px; margin-bottom: 2px; flex-wrap: wrap; }
-    .t-stars svg { width: 14px; height: 14px; }
-    .t-ago { color: var(--grey); font-size: .75rem; margin-left: 4px; }
-    .testimonial p {
-      font-size: .9rem; color: var(--black); line-height: 1.7;
-      margin-top: 8px;
-    }
+    .t-name { color: var(--black); font-weight: 800; font-size: .95rem; }
+    .t-sub { color: var(--grey); font-size: .75rem; margin-top: 1px; }
+    .t-stars { display: flex; align-items: center; gap: 3px; flex-wrap: wrap; margin-bottom: 8px; }
+    .t-stars svg { width: 13px; height: 13px; }
+    .t-ago { color: var(--grey); font-size: .73rem; margin-left: 4px; }
+    .testimonial p { font-size: .88rem; color: var(--black); line-height: 1.7; }
 
-    .dots { display: flex; justify-content: center; gap: 7px; margin-top: 16px; flex-wrap: wrap; }
+    .dots { display: flex; justify-content: center; gap: 7px; margin-top: 16px; }
     .dot {
       width: 10px; height: 10px; border-radius: 50%;
-      background: #d0d0d0; cursor: pointer; transition: background .2s, transform .2s;
+      background: #d0d0d0; cursor: pointer;
+      transition: background .2s, transform .2s;
       border: none; padding: 0;
     }
     .dot.active { background: var(--yellow2); transform: scale(1.35); }
 
-    /* ── URGENCY CARD ── */
-    .urgency-card {
+    /* ── COUNTRIES ── */
+    .countries-section {
       background: var(--black);
-      margin: 0 16px 20px;
-      border-radius: 20px;
-      padding: 28px 20px 24px;
+      padding: 32px 20px;
+    }
+    .countries-section .section-label { color: var(--yellow2); }
+    .countries-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      max-width: 420px;
+      margin: 0 auto 24px;
+    }
+    .country-card {
+      background: var(--black3);
+      border: 1px solid #2e2e2e;
+      border-radius: 12px;
+      padding: 14px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .country-flag { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
+    .country-name { font-size: .88rem; font-weight: 700; color: var(--white); }
+    .country-tag { font-size: .65rem; font-weight: 600; color: var(--grey); margin-top: 2px; }
+    .more-countries {
       text-align: center;
-      border: 1.5px solid var(--yellow);
-    }
-    .urg-headline {
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: var(--yellow);
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-    .urg-sub {
-      font-size: 1rem;
-      color: var(--white);
+      color: var(--grey);
+      font-size: .82rem;
       font-weight: 600;
       margin-bottom: 24px;
-      line-height: 1.5;
     }
+    .more-countries span { color: var(--yellow); font-weight: 800; }
 
-    .offer-label {
-      font-size: .85rem;
-      color: var(--grey);
-      font-weight: 700;
-      margin-top: 20px;
-      margin-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: .5px;
+    /* ── URGENCY ── */
+    .urgency-section {
+      background: var(--black);
+      padding: 0 20px 32px;
     }
-    .countdown {
-      font-size: 2rem;
+    .urgency-card {
+      border: 1.5px solid var(--yellow);
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .urg-headline {
+      font-size: 1.4rem;
       font-weight: 900;
       color: var(--yellow);
-      letter-spacing: 2px;
+      margin-bottom: 8px;
+      line-height: 1.25;
     }
-
-    /* ── ADVISOR STRIP ── */
-    .advisor-strip {
-      background: var(--yellow);
-      margin: 0 16px 32px;
-      border-radius: 20px;
-      padding: 26px 20px;
-      text-align: center;
-      color: var(--black);
+    .urg-sub {
+      font-size: .92rem;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 20px;
+      line-height: 1.5;
     }
-    .advisor-strip .clock-icon { margin-bottom: 10px; }
-    .advisor-strip .clock-icon svg { width: 44px; height: 44px; }
-    .advisor-strip p { font-size: 1rem; line-height: 1.8; font-weight: 600; }
-    .advisor-strip .wa-link { color: var(--black); font-weight: 900; text-decoration: underline; }
 
     /* ── STICKY FOOTER ── */
     .sticky-footer {
@@ -303,10 +339,7 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
       gap: 10px;
       z-index: 100;
       box-shadow: 0 -4px 20px rgba(0,0,0,.25);
-      transform: translateY(100%);
-      transition: transform .4s ease;
     }
-    .sticky-footer.show { transform: translateY(0); }
     .sticky-footer a {
       color: var(--white);
       font-weight: 800;
@@ -316,7 +349,7 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
       align-items: center;
       gap: 10px;
     }
-    .sticky-footer svg { width: 26px; height: 26px; flex-shrink: 0; }
+    .sticky-footer svg { width: 24px; height: 24px; flex-shrink: 0; }
     .pulse {
       width: 10px; height: 10px; border-radius: 50%;
       background: var(--white); flex-shrink: 0;
@@ -329,22 +362,19 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
 
     /* ── FOOTER ── */
     footer {
-      background: var(--black);
+      background: var(--black2);
       color: var(--grey);
       text-align: center;
-      padding: 20px;
+      padding: 20px 20px 90px;
       font-size: .78rem;
-      padding-bottom: 84px; /* clears the fixed sticky footer */
+      border-top: 1px solid #222;
     }
     footer a { color: var(--yellow); text-decoration: none; }
-    footer p + p { margin-top: 6px; }
 
     @media (min-width: 480px) {
-      .hero h1 { font-size: 2.5rem; }
+      .hero h1 { font-size: 2.4rem; }
     }
   </style>
-
-  
 </head>
 <body>
 
@@ -353,102 +383,120 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
   <img
     src="https://www.drexpertedu.com/_next/image/?url=%2Fimages%2Flogo.png&w=256&q=75"
     alt="Dr. Expert Edulinks"
-    style="height:72px;width:auto;display:block;"
+    style="height:64px;width:auto;display:block;"
   />
 </header>
 
 <!-- ═══════════════ HERO ═══════════════ -->
 <section class="hero">
-  <h1>Your <span>MBBS Dream</span><br>Starts Here!</h1>
+  <h1>Study <span class="highlight">MBBS Abroad</span><br>with Doctor-Led Guidance</h1>
   <p class="sub">
-    <strong>Doctor-led guidance.</strong> 60+ countries.<br>
-    Trusted by 1,000+ Kerala students.
+    Trusted by <strong>5,000+ students</strong> across the world for MBBS Abroad —
+    Admissions in <strong>Europe, Egypt, Uzbekistan, Georgia, Romania</strong> and more
   </p>
+</section>
 
-  <a class="btn-wa" href="https://wa.me/917025049000?text=Hi%2C%20I%27m%20interested%20in%20MBBS%20abroad%20admissions" target="_blank" rel="noopener">
+<!-- ═══════════════ WHATSAPP BUTTON ═══════════════ -->
+<div class="wa-section">
+  <a class="btn-wa" onclick="fbq('track', 'Contact');" href="https://wa.me/917025049000?text=Hi%2C%20I%27m%20interested%20in%20MBBS%20abroad%20admissions" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
     Chat on WhatsApp Now
   </a>
+</div>
 
-  <div class="badges">
-    <span class="badge">✓ Free Consultation</span>
-    <span class="badge">✓ Doctor-Led Team</span>
-    <span class="badge">✓ 60+ Countries</span>
-    <span class="badge">✓ 24/7 Support</span>
+<!-- ═══════════════ BADGES ═══════════════ -->
+<div class="badges-section">
+  <span class="badge">✓ Free Consultation</span>
+  <span class="badge">✓ Doctor-Led Team</span>
+  <span class="badge">✓ 60+ Countries</span>
+  <span class="badge">✓ 24/7 Support</span>
+</div>
+
+<!-- ═══════════════ TRUST CARDS ═══════════════ -->
+<div class="trust-section">
+  <div class="trust-grid">
+    <div class="trust-card">
+      <div class="val">4.8 ★</div>
+      <div class="lbl">Google Rating</div>
+    </div>
+    <div class="trust-card">
+      <div class="val">5,000+</div>
+      <div class="lbl">Students Placed Abroad</div>
+    </div>
+    <div class="trust-card">
+      <div class="val">11+ Yrs</div>
+      <div class="lbl">Experience</div>
+    </div>
+    <div class="trust-card">
+      <div class="val">Doctor</div>
+      <div class="lbl">Led MBBS Consultancy</div>
+    </div>
   </div>
-</section>
+</div>
 
-<!-- ═══════════════ TRUST BULLETS ═══════════════ -->
-<section class="bullets">
+<!-- ═══════════════ WHY CHOOSE US ═══════════════ -->
+<section class="why-section">
   <div class="section-label">Why Choose Us</div>
   <ul>
     <li>
-      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-      Kerala's most trusted MBBS abroad consultancy
+      <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      Doctor-led guidance — 11+ years of experience
     </li>
     <li>
-      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-      1,000+ students successfully placed
+      <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      5,000+ students successfully placed abroad
     </li>
     <li>
-      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-      100% guidance from seasoned doctors
+      <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      NMC approved universities in 60+ countries
     </li>
     <li>
-      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-      60+ countries — find your perfect fit
-    </li>
-    <li>
-      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-      Visa, documentation &amp; scholarship support
-    </li>
-    <li>
-      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-      24/7 student support — always available
-    </li>
-    <li>
-      <span class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
-      Free expert consultation — zero commitment
+      <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="#febf1b" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+      Visa, documentation &amp; 24/7 support included
     </li>
   </ul>
+  <div style="display:flex;justify-content:center;">
+    <a class="btn-wa" onclick="fbq('track', 'Contact');" href="https://wa.me/917025049000?text=Hi%2C%20I%27m%20interested%20in%20MBBS%20abroad%20admissions" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      Get Free Consultation on WhatsApp
+    </a>
+  </div>
 </section>
 
-<!-- ═══════════════ YELLOW STRIPE ═══════════════ -->
+<!-- ═══════════════ STRIPE ═══════════════ -->
 <div class="stripe">
   Be a Doctor — Guided by Doctors. 100% Transparent Process.
 </div>
 
-<!-- ═══════════════ GOOGLE REVIEWS CARD ═══════════════ -->
-<div class="reviews-card">
-  <div class="section-label">What Our Students Say</div>
+<!-- ═══════════════ STUDENT SUCCESS STORIES ═══════════════ -->
+<section class="reviews-section">
+  <div class="section-label">Student Success Stories</div>
+  <div class="reviews-inner">
+    <div class="g-logo">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+      </svg>
+      <span style="font-size:.85rem;font-weight:700;color:var(--black);">Google Reviews</span>
+    </div>
+    <div class="rating-num">4.8</div>
+    <div class="stars">
+      <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    <p class="review-count">1,000+ Reviews on Google</p>
 
-  <div class="g-logo">
-    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
-      <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
-      <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
-      <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-    </svg>
-  </div>
-  <div class="rating-num">4.8</div>
-  <div class="stars">
-    <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-    <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-    <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-    <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-    <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-  </div>
-  <p class="review-count">1,000+ Reviews on Google</p>
-
-  <div class="testimonial-wrap">
-
-    <!-- Review 1 — Jumi -->
     <div class="testimonial active">
       <div class="t-header">
         <div class="t-avatar"><img src="jumi.png" alt="Jumi" /></div>
-        <div class="t-meta">
+        <div>
           <div class="t-name">Jumi</div>
-          <div class="t-reviews-count">1 review</div>
+          <div class="t-sub">1 review</div>
         </div>
       </div>
       <div class="t-stars">
@@ -459,16 +507,15 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
         <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         <span class="t-ago">· 8 months ago</span>
       </div>
-      <p>Choosing Dr. Expert Edulinks was the best decision for my MBBS abroad journey. From the first day itself, their team guided me like a family — with clear information, proper counseling, and step-by-step support. They took care of everything, from admission and documents to visa process, making it stress-free for me and my parents. Truly the best consultancy in Kerala for MBBS abroad.</p>
+      <p>Choosing Dr. Expert Edulinks was the best decision for my MBBS abroad journey. Their team guided me like a family — clear information, proper counseling, and step-by-step support. They handled everything from admission to visa. Truly the best consultancy in Kerala for MBBS abroad.</p>
     </div>
 
-    <!-- Review 2 — Fidha Latheef -->
     <div class="testimonial">
       <div class="t-header">
         <div class="t-avatar"><img src="fida.png" alt="Fidha Latheef" /></div>
-        <div class="t-meta">
+        <div>
           <div class="t-name">Fidha Latheef</div>
-          <div class="t-reviews-count">5 reviews · 5 photos</div>
+          <div class="t-sub">5 reviews · 5 photos</div>
         </div>
       </div>
       <div class="t-stars">
@@ -479,16 +526,15 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
         <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         <span class="t-ago">· 8 months ago</span>
       </div>
-      <p>No doubt the finest mbbs consultants in Kerala. Their services are top notch. They provide us with clear directions right from the beginning. Being anxious guardians the moral and technical support they provide are commendable. They clear all our queries promptly. Without doubt it is the best mbbs consultancy in Kerala.</p>
+      <p>No doubt the finest MBBS consultants in Kerala. Their services are top notch. They provide clear directions right from the beginning and clear all queries promptly. Without doubt the best MBBS consultancy in Kerala.</p>
     </div>
 
-    <!-- Review 3 — Firoz Babu -->
     <div class="testimonial">
       <div class="t-header">
         <div class="t-avatar"><img src="firoz.png" alt="Firoz Babu" /></div>
-        <div class="t-meta">
+        <div>
           <div class="t-name">Firoz Babu</div>
-          <div class="t-reviews-count">3 reviews</div>
+          <div class="t-sub">3 reviews</div>
         </div>
       </div>
       <div class="t-stars">
@@ -499,16 +545,15 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
         <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         <span class="t-ago">· 8 months ago</span>
       </div>
-      <p>#Best MBBS abroad consultancy in India. The way how Dr.Expert supported us to reach up to the day today that my son is ready to fly to Cairo University, Egypt tomorrow to pursue his MBBS education is excellent and more than expected. We hope to receive the same and better support through out our children's education in Egypt. Thank you Dr. Expert Team!</p>
+      <p>Best MBBS abroad consultancy in India. The support Dr. Expert gave us until my son flew to Cairo University, Egypt was excellent and more than expected. Thank you Dr. Expert Team!</p>
     </div>
 
-    <!-- Review 4 — nistil rooy -->
     <div class="testimonial">
       <div class="t-header">
         <div class="t-avatar" style="background:#1565c0;">n</div>
-        <div class="t-meta">
-          <div class="t-name">nistil rooy</div>
-          <div class="t-reviews-count">1 review</div>
+        <div>
+          <div class="t-name">Nistil Rooy</div>
+          <div class="t-sub">1 review</div>
         </div>
       </div>
       <div class="t-stars">
@@ -519,59 +564,103 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
         <svg viewBox="0 0 24 24" fill="#febf1b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         <span class="t-ago">· 8 months ago</span>
       </div>
-      <p>Really happy with their service! This is truly the best MBBS abroad consultancy in Calicut and probably the best MBBS abroad education consultancy in Kerala. The team gives great guidance, very supportive, and they make the process smooth. Definitely among the top education consultants in Kerala. If you're looking for MBBS admission consultants in Calicut, this is the right place!</p>
+      <p>Really happy with their service! Truly the best MBBS abroad consultancy in Calicut and Kerala. Great guidance, very supportive, and they make the process smooth. Highly recommended!</p>
     </div>
 
+    <div class="dots" id="dots"></div>
+
+    <div style="margin-top:24px;display:flex;justify-content:center;">
+      <a class="btn-wa" onclick="fbq('track', 'Contact');" href="https://wa.me/917025049000?text=Hi%2C%20I%20want%20to%20know%20more%20about%20MBBS%20abroad" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+        Join 1,000+ Students — Chat Now
+      </a>
+    </div>
   </div>
-  <div class="dots" id="dots"></div>
-</div>
+</section>
 
-<!-- ═══════════════ URGENCY CARD ═══════════════ -->
-<div class="urgency-card">
-  <div class="urg-headline">🔥 MBBS Seats Filling Fast</div>
-  <div class="urg-sub">Limited Seats Available in Top Medical Universities</div>
-
-  <a class="btn-wa" href="https://wa.me/917025049000?text=Hi%2C%20I%20want%20to%20reserve%20my%20MBBS%20abroad%20seat" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
-    Reserve My Seat on WhatsApp
-  </a>
-
-  <div class="offer-label">Offer Ending Soon</div>
-  <div class="countdown" id="countdown">45:00</div>
-</div>
-
-<!-- ═══════════════ ADVISOR STRIP ═══════════════ -->
-<div class="advisor-strip">
-  <div class="clock-icon">
-    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="24" cy="24" r="20" stroke="#0a0a0a" stroke-width="3"/>
-      <path d="M24 14v10l7 4" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
+<!-- ═══════════════ COUNTRIES ═══════════════ -->
+<section class="countries-section">
+  <div class="section-label">Top Destinations</div>
+  <div class="countries-grid">
+    <div class="country-card">
+      <div class="country-flag">🇺🇿</div>
+      <div>
+        <div class="country-name">Uzbekistan</div>
+        <div class="country-tag">Central Asia · NMC Approved</div>
+      </div>
+    </div>
+    <div class="country-card">
+      <div class="country-flag">🇬🇪</div>
+      <div>
+        <div class="country-name">Georgia</div>
+        <div class="country-tag">Europe · NMC Approved</div>
+      </div>
+    </div>
+    <div class="country-card">
+      <div class="country-flag">🇪🇬</div>
+      <div>
+        <div class="country-name">Egypt</div>
+        <div class="country-tag">Africa · NMC Approved</div>
+      </div>
+    </div>
+    <div class="country-card">
+      <div class="country-flag">🇧🇬</div>
+      <div>
+        <div class="country-name">Bulgaria</div>
+        <div class="country-tag">Europe · NMC Approved</div>
+      </div>
+    </div>
+    <div class="country-card">
+      <div class="country-flag">🇷🇴</div>
+      <div>
+        <div class="country-name">Romania</div>
+        <div class="country-tag">Europe · NMC Approved</div>
+      </div>
+    </div>
+    <div class="country-card">
+      <div class="country-flag">🇬🇧</div>
+      <div>
+        <div class="country-name">UK</div>
+        <div class="country-tag">Europe · NMC Approved</div>
+      </div>
+    </div>
   </div>
-  <p>
-    Wait just <strong>10 seconds.</strong><br>
-    Our Admission Advisor will connect<br>
-    with you on <a class="wa-link" href="https://wa.me/917025049000" target="_blank" rel="noopener">WhatsApp</a> right away.
-  </p>
+  <p class="more-countries">+ <span>54 more countries</span> available — ask us on WhatsApp</p>
+  <div style="display:flex;justify-content:center;">
+    <a class="btn-wa" onclick="fbq('track', 'Contact');" href="https://wa.me/917025049000?text=Hi%2C%20I%27d%20like%20to%20know%20about%20MBBS%20destinations" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      Explore All Countries on WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════ URGENCY ═══════════════ -->
+<div class="urgency-section">
+  <div class="urgency-card">
+    <div class="urg-headline">🔥 MBBS Seats Filling Fast</div>
+    <div class="urg-sub">Seats are filling fast in NMC approved universities</div>
+    <a class="btn-wa" onclick="fbq('track', 'Contact');" href="https://wa.me/917025049000?text=Hi%2C%20I%20want%20to%20reserve%20my%20MBBS%20abroad%20seat" target="_blank" rel="noopener" style="background:#1a8c44;font-size:.88rem;padding:13px 20px;box-shadow:0 4px 16px rgba(0,0,0,.3);">
+      <svg viewBox="0 0 24 24" fill="white" style="width:20px;height:20px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      Reserve My Seat on WhatsApp
+    </a>
+  </div>
 </div>
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <footer>
   <p>© 2025 <a href="https://www.drexpertedu.com/" target="_blank" rel="noopener">Dr. Expert Edulinks</a> — All rights reserved</p>
-  <p>📞 <a href="tel:+917025719000">+91 7025 719 000</a> &nbsp;|&nbsp; <a href="tel:+917025729000">+91 7025 729 000</a></p>
 </footer>
 
-<!-- ═══════════════ STICKY FOOTER ═══════════════ -->
-<div class="sticky-footer" id="sticky-wa">
+<!-- ═══════════════ STICKY WHATSAPP ═══════════════ -->
+<div class="sticky-footer">
   <div class="pulse"></div>
-  <a href="https://wa.me/917025049000?text=Hi%2C%20I%27m%20interested%20in%20MBBS%20abroad%20admissions" target="_blank" rel="noopener">
+  <a onclick="fbq('track', 'Contact');" href="https://wa.me/917025049000?text=Hi%2C%20I%27m%20interested%20in%20MBBS%20abroad%20admissions" target="_blank" rel="noopener">
     <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
     Chat with Admission Advisor Now
   </a>
 </div>
 
 <script>
-  /* ── Testimonial carousel ── */
   const slides   = document.querySelectorAll('.testimonial');
   const dotsWrap = document.getElementById('dots');
   let cur = 0, timer;
@@ -579,7 +668,7 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
   slides.forEach((_, i) => {
     const b = document.createElement('button');
     b.className = 'dot' + (i === 0 ? ' active' : '');
-    b.setAttribute('aria-label', 'Testimonial ' + (i + 1));
+    b.setAttribute('aria-label', 'Review ' + (i + 1));
     b.addEventListener('click', () => goTo(i));
     dotsWrap.appendChild(b);
   });
@@ -591,38 +680,18 @@ src="https://www.facebook.com/tr?id=1186046889131663&ev=PageView&noscript=1"
     slides[cur].classList.add('active');
     dotsWrap.children[cur].classList.add('active');
     clearInterval(timer);
-    timer = setInterval(next, 4000);
+    timer = setInterval(next, 4500);
   }
   function next() { goTo(cur + 1); }
-  timer = setInterval(next, 4000);
-
-  /* ── Countdown to next hour boundary (repeats every hour) ── */
-  (function () {
-    const el = document.getElementById('countdown');
-    function tick() {
-      const now  = new Date();
-      const next = new Date(now);
-      next.setMinutes(60, 0, 0); // top of the next hour
-      const diff = Math.max(0, next - now);
-      const m = Math.floor(diff / 60000);
-      const s = Math.floor((diff % 60000) / 1000);
-      el.textContent = String(m).padStart(2, '0') + 'm : ' + String(s).padStart(2, '0') + 's';
-    }
-    tick();
-    setInterval(tick, 1000);
-  })();
-
-  /* ── Sticky footer after 8 s ── */
-  setTimeout(() => document.getElementById('sticky-wa').classList.add('show'), 8000);
-
+  timer = setInterval(next, 4500);
 </script>
 
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "x4pa5a694d");
+</script>
 </body>
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "x4pa5a694d");
-</script>
 </html>
