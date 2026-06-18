@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import jumi from '../assets/jumi.png';
 import fida from '../assets/fida.png';
 import firoz from '../assets/firoz.png';
 
-const WA_NUMBER = '917025049000';
 
 const testimonials = [
   {
@@ -113,11 +112,7 @@ var googleLogo = (
 function LandingPage() {
 
   const [current, setCurrent] = useState(0);
-  const [backendTokenId, setBackendTokenId] = useState(null);
-
-  const hasTracked = useRef(false);
-
-  console.log("Current backendTokenId:", backendTokenId);
+  const [isGeneratingToken, setIsGeneratingToken] = useState(false);
 
   useEffect(() => {
 
@@ -127,60 +122,30 @@ function LandingPage() {
     return function () { clearInterval(timer); };
   }, []);
 
-  useEffect(() => {
-    const trackUtmParameters = async () => {
-
-        console.log("Current trackUtmParameters:", trackUtmParameters);
 
 
-      if (hasTracked.current) return;
+async function handleWhatsApp(buttonName) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const utm_campign = urlParams.get('utm_campign') || '';
+  const utm_adset = urlParams.get('utm_adset') || '';
+  const utm_ad = urlParams.get('utm_ad') || '';
 
-      const urlParams = new URLSearchParams(window.location.search);
-      const utm_campign = urlParams.get('utm_campign') || '';
-      const utm_adset = urlParams.get('utm_adset') || '';
-      const utm_ad = urlParams.get('utm_ad') || '';
+  let token = null;
 
-      console.log('urlParams:', urlParams);
-      console.log('utm_campign:', utm_campign);
-      console.log('utm_adset:', utm_adset);
-      console.log('utm_ad:', utm_ad);
-
-      if (utm_campign || utm_adset || utm_ad) {
-
-              console.log('urlParams------:', urlParams);
-      console.log('utm_campign------:', utm_campign);
-      console.log('utm_adset------:', utm_adset);
-      console.log('utm_ad------:', utm_ad);
-        hasTracked.current = true;
-
-        try {
-          const apiUrl = `https://api.drexpertedu.com/neet_exam/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
-
-          const response = await fetch(apiUrl);
-          const data = await response.json();
-
-          if (data.success) {
-            console.log("Successfully saved UTM. Database ID:", data.token);
-            setBackendTokenId(data.token);
-          }
-        } catch (error) {
-          console.error("Error tracking UTM:", error);
-          hasTracked.current = false;
-        }
-      }
-    };
-
-    trackUtmParameters();
-  }, []);
-
-function handleWhatsApp(buttonName) {
-  let message = "Hi, I'm interested in MBBS abroad admissions.";
-  
-  if (backendTokenId) {
-    message += `\n\nToken: #${backendTokenId}`;
+  if (utm_campign || utm_adset || utm_ad) {
+    setIsGeneratingToken(true);
+    try {
+      const apiUrl = `https://api.drexpertedu.com/neet-exam/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      if (data.success) token = data.token;
+    } catch (error) {
+      console.error("Error tracking UTM:", error);
+    }
+    setIsGeneratingToken(false);
   }
-  
-  window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message), '_blank');
+
+  window.openWhatsApp(buttonName, token);
 }
 
   return (
@@ -271,7 +236,7 @@ function handleWhatsApp(buttonName) {
         }}
       >
         <a
-          style={btnWaStyle}
+          style={{ ...btnWaStyle, ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}) }}
           onClick={function (e) { e.preventDefault(); handleWhatsApp('hero_cta'); }}
           href="#"
         >
@@ -418,7 +383,7 @@ function handleWhatsApp(buttonName) {
         </ul>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <a
-            style={btnWaStyle}
+            style={{ ...btnWaStyle, ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}) }}
             onClick={function (e) { e.preventDefault(); handleWhatsApp('why_cta'); }}
             href="#"
           >
@@ -555,7 +520,7 @@ function handleWhatsApp(buttonName) {
 
           <div style={{ marginTop: 24, display: 'flex', justifyContent: 'center' }}>
             <a
-              style={btnWaStyle}
+              style={{ ...btnWaStyle, ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}) }}
               onClick={function (e) { e.preventDefault(); handleWhatsApp('reviews_cta'); }}
               href="#"
             >
@@ -628,7 +593,7 @@ function handleWhatsApp(buttonName) {
         </p>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <a
-            style={btnWaStyle}
+            style={{ ...btnWaStyle, ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}) }}
             onClick={function (e) { e.preventDefault(); handleWhatsApp('countries_cta'); }}
             href="#"
           >
@@ -679,6 +644,7 @@ function handleWhatsApp(buttonName) {
               fontSize: '.88rem',
               padding: '13px 20px',
               boxShadow: '0 4px 16px rgba(0,0,0,.3)',
+              ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}),
             }}
             onClick={function (e) { e.preventDefault(); handleWhatsApp('urgency_cta'); }}
             href="#"
@@ -755,6 +721,7 @@ function handleWhatsApp(buttonName) {
             display: 'flex',
             alignItems: 'center',
             gap: 10,
+            ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}),
           }}
         >
           <svg viewBox="0 0 24 24" fill="white" style={{ width: 24, height: 24, flexShrink: 0 }}>
