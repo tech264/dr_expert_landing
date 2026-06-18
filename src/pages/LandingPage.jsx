@@ -154,7 +154,7 @@ function LandingPage() {
         hasTracked.current = true;
 
         try {
-          const apiUrl = `https://api.drexpertedu.com/neet_exam/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
+          const apiUrl = `https://api.drexpertedu.com/neet-exam/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
 
           const response = await fetch(apiUrl);
           const data = await response.json();
