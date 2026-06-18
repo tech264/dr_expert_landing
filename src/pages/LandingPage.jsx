@@ -117,7 +117,10 @@ function LandingPage() {
 
   const hasTracked = useRef(false);
 
+  console.log("Current backendTokenId:", backendTokenId);
+
   useEffect(() => {
+
     var timer = setInterval(function () {
       setCurrent(function (prev) { return (prev + 1) % testimonials.length; });
     }, 4500);
@@ -127,6 +130,9 @@ function LandingPage() {
   useEffect(() => {
     const trackUtmParameters = async () => {
 
+        console.log("Current trackUtmParameters:", trackUtmParameters);
+
+
       if (hasTracked.current) return;
 
       const urlParams = new URLSearchParams(window.location.search);
@@ -134,12 +140,21 @@ function LandingPage() {
       const utm_adset = urlParams.get('utm_adset') || '';
       const utm_ad = urlParams.get('utm_ad') || '';
 
+      console.log('urlParams:', urlParams);
+      console.log('utm_campign:', utm_campign);
+      console.log('utm_adset:', utm_adset);
+      console.log('utm_ad:', utm_ad);
+
       if (utm_campign || utm_adset || utm_ad) {
 
+              console.log('urlParams------:', urlParams);
+      console.log('utm_campign------:', utm_campign);
+      console.log('utm_adset------:', utm_adset);
+      console.log('utm_ad------:', utm_ad);
         hasTracked.current = true;
 
         try {
-          const apiUrl = `http://localhost:3000/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
+          const apiUrl = `https://api.drexpertedu.com/neet_exam/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
 
           const response = await fetch(apiUrl);
           const data = await response.json();
