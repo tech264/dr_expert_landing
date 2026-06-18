@@ -33,35 +33,17 @@
     }
 
     /* ── Main reusable WhatsApp opener ── */
-    function openWhatsApp(buttonName) {
+    function openWhatsApp(buttonName, backendToken) {
       /* 1. Fire Meta Pixel event */
       if (typeof fbq === 'function') {
         fbq('track', 'Contact');
       }
-
-      /* 2. Build tracking payload */
-      var trackingData = {
-        utm_source: getParam('utm_source'),
-        utm_campaign: getParam('utm_campaign'),
-        utm_adset: getParam('utm_adset'),
-        utm_ad: getParam('utm_ad'),
-        fbclid: getParam('fbclid'),
-        page_name: PAGE_NAME,
-        button_name: buttonName || 'unknown',
-        timestamp: new Date().toISOString()
-      };
-
-      /* 3. Encode with WATI CrossPlatformCompressor */
-      var compressedParams = '';
-      try {
-        compressedParams = CrossPlatformCompressor.encode(trackingData);
-      } catch (e) {
-        /* Fallback: plain JSON if compressor not loaded yet */
-        compressedParams = encodeURIComponent(JSON.stringify(trackingData));
-      }
-
+ 
       /* 4. Build message */
-      var message = "Hi, I'm interested in MBBS abroad admissions.\n\n[ContextId: " + compressedParams + "]";
+      var message = `Hi, I'm interested in MBBS abroad admissions`;
+      if (backendToken) {
+        message += "\n\nToken: #" + backendToken;
+      }
 
       /* 5. Open WhatsApp */
       window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message), '_blank');
