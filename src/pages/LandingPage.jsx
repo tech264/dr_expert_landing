@@ -138,7 +138,7 @@ function LandingPage() {
         window.openWhatsApp(buttonName, token);
     } else {
       setIsGeneratingToken(true)
-      setRetry(false)
+      setRetry(!retry)
     }
   }
 
@@ -147,6 +147,9 @@ function LandingPage() {
   useEffect(() => {
     if (!token) {
 
+
+      
+
       async function handleWhatsAppApi() {
         console.log("Hello world")
         const urlParams = new URLSearchParams(window.location.search);
@@ -154,7 +157,13 @@ function LandingPage() {
         const utm_adset = urlParams.get('utm_adset') || '';
         const utm_ad = urlParams.get('utm_ad') || '';
     
-        console.log(urlParams, utm_campign, utm_ad);
+        console.log(urlParams);
+
+        console.log("Params");
+        console.log(utm_campign);
+        console.log(utm_ad);
+        console.log(utm_adset);
+        
     
         let token = null;
     
