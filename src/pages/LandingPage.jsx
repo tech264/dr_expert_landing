@@ -132,7 +132,7 @@ function LandingPage() {
 async function handleWhatsApp(buttonName) {
   console.log("Hello world")
   const urlParams = new URLSearchParams(window.location.search);
-  const utm_campign = urlParams.get('utm_campign') || '';
+  const utm_campign = urlParams.get('utm_campaign') || '';
   const utm_adset = urlParams.get('utm_adset') || '';
   const utm_ad = urlParams.get('utm_ad') || '';
 
@@ -140,7 +140,7 @@ async function handleWhatsApp(buttonName) {
 
   let token = null;
 
-  
+  // https://landing.drexpertedu.com/?utm_source=facebook&utm_campaign=Georgia+%7C+website+%7C+engmt+%7C+16/05/26&utm_adset=Georgia+%7C+website+%7C+Kerala+%7C+engmt+%7C+Ad+Set&utm_ad=Georgia+%7C+Kerala+%7C+Cr+1+%7C+Poster+common&fbclid=PAVERFWASks0tleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafa6srdX8hQFHK_SUh1nKbwaEVTUXEmIiP1jhEYXQkFgGRIJapYTT_6MXMk0g_aem_w86XXDx-QW2e9m-2lawyPg
 
   if (utm_campign || utm_adset || utm_ad) {
     setIsGeneratingToken(true);
