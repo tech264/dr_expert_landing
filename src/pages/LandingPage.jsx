@@ -125,17 +125,23 @@ function LandingPage() {
 
 
 async function handleWhatsApp(buttonName) {
+  console.log("Hello world")
   const urlParams = new URLSearchParams(window.location.search);
   const utm_campign = urlParams.get('utm_campaign') || '';
   const utm_adset = urlParams.get('utm_adset') || '';
   const utm_ad = urlParams.get('utm_ad') || '';
 
+  console.log(urlParams, utm_campign, utm_ad);
+
   let token = null;
+
+  
 
   if (utm_campign || utm_adset || utm_ad) {
     setIsGeneratingToken(true);
     try {
-      const apiUrl = `https://api.drexpertedu.com/neet-exam/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
+      // const apiUrl = `http://localhost:3000/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
+      const apiUrl = `https://api.drexpertedu.com/neet-exam/api/track-utm?utm_campaign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
       const response = await fetch(apiUrl);
       const data = await response.json();
       if (data.success) token = data.token;
@@ -444,6 +450,7 @@ async function handleWhatsApp(buttonName) {
             return (
               <div
                 key={t.id}
+                className="testimonial"
                 style={{
                   display: i === current ? 'block' : 'none',
                   background: '#f9f9f9',

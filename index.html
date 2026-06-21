@@ -8,11 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="/assets/index-Bcp_mOPn.js"></script>
 </head>
 
 <body>
   <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
 
   <script src="https://wati-integration-prod-service.clare.ai/v2/watiWidget.js?v=0.1"></script>
   <script>
@@ -38,9 +38,10 @@
       if (typeof fbq === 'function') {
         fbq('track', 'Contact');
       }
- 
+
+      
       /* 4. Build message */
-      var message = `Hi, I'm interested in MBBS abroad admissions`;
+      var message = "Hi, I'm interested in MBBS abroad admissions";
       if (backendToken) {
         message += "\n\nToken: #" + backendToken;
       }
