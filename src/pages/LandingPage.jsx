@@ -171,9 +171,9 @@ function LandingPage() {
     
         if (utm_campign || utm_adset || utm_ad) {
           // setIsGeneratingToken(true);
-          try {
+          try { 
             // const apiUrl = `http://localhost:3000/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
-            const apiUrl = `https://api.drexpertedu.com/neet-exam/api/track-utm?utm_campaign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
+            const apiUrl = `https://api.drexpertedu.com/neet-exam/api/track-utm?campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
             const response = await fetch(apiUrl);
             const data = await response.json();
             if (data.success) token = data.token;
