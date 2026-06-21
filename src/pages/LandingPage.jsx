@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import jumi from '../assets/jumi.png';
 import fida from '../assets/fida.png';
 import firoz from '../assets/firoz.png';
@@ -113,13 +113,18 @@ function LandingPage() {
 
   const [current, setCurrent] = useState(0);
   const [isGeneratingToken, setIsGeneratingToken] = useState(false);
+  const timerRef = useRef(null);
 
-  useEffect(() => {
-
-    var timer = setInterval(function () {
+  function resetTimer() {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(function () {
       setCurrent(function (prev) { return (prev + 1) % testimonials.length; });
     }, 4500);
-    return function () { clearInterval(timer); };
+  }
+
+  useEffect(function () {
+    resetTimer();
+    return function () { clearInterval(timerRef.current); };
   }, []);
 
 
@@ -507,7 +512,7 @@ async function handleWhatsApp(buttonName) {
               return (
                 <button
                   key={i}
-                  onClick={function () { setCurrent(i); }}
+                  onClick={function () { setCurrent(i); resetTimer(); }}
                   aria-label={'Review ' + (i + 1)}
                   style={{
                     width: 10,

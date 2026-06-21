@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-  <!-- <script type="module" crossorigin src="/assets/index-Bcp_mOPn.js"></script> -->
+  <script type="module" src="/src/main.jsx"></script>
 </head>
 
 <body>
@@ -50,30 +50,7 @@
       window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message), '_blank');
     }
 
-    /* ── Testimonial carousel ── */
-    const slides = document.querySelectorAll('.testimonial');
-    const dotsWrap = document.getElementById('dots');
-    let cur = 0, timer;
-
-    slides.forEach((_, i) => {
-      const b = document.createElement('button');
-      b.className = 'dot' + (i === 0 ? ' active' : '');
-      b.setAttribute('aria-label', 'Review ' + (i + 1));
-      b.addEventListener('click', () => goTo(i));
-      dotsWrap.appendChild(b);
-    });
-
-    function goTo(n) {
-      slides[cur].classList.remove('active');
-      dotsWrap.children[cur].classList.remove('active');
-      cur = (n + slides.length) % slides.length;
-      slides[cur].classList.add('active');
-      dotsWrap.children[cur].classList.add('active');
-      clearInterval(timer);
-      timer = setInterval(next, 4500);
-    }
-    function next() { goTo(cur + 1); }
-    timer = setInterval(next, 4500);
+    /* ── Testimonial carousel (handled by React in LandingPage.jsx) ── */
   </script>
 
   <script type="text/javascript">
