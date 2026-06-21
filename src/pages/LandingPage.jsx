@@ -450,6 +450,7 @@ async function handleWhatsApp(buttonName) {
             return (
               <div
                 key={t.id}
+                className="testimonial"
                 style={{
                   display: i === current ? 'block' : 'none',
                   background: '#f9f9f9',
