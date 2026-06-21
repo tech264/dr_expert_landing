@@ -126,7 +126,7 @@ function LandingPage() {
 
 async function handleWhatsApp(buttonName) {
   const urlParams = new URLSearchParams(window.location.search);
-  const utm_campign = urlParams.get('utm_campign') || '';
+  const utm_campign = urlParams.get('utm_campaign') || '';
   const utm_adset = urlParams.get('utm_adset') || '';
   const utm_ad = urlParams.get('utm_ad') || '';
 
