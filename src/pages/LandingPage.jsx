@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import jumi from '../assets/jumi.png';
 import fida from '../assets/fida.png';
 import firoz from '../assets/firoz.png';
 
-
+//done
 const testimonials = [
   {
     id: 1,
@@ -113,15 +113,23 @@ function LandingPage() {
 
   const [current, setCurrent] = useState(0);
   const [isGeneratingToken, setIsGeneratingToken] = useState(false);
+  const timerRef = useRef(null);
+  const [token, setToken] = useState(null)
+  const [retry, setRetry] = useState(false)
+  
+ 
 
-  useEffect(() => {
-
-    var timer = setInterval(function () {
+  function resetTimer() {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(function () {
       setCurrent(function (prev) { return (prev + 1) % testimonials.length; });
     }, 4500);
-    return function () { clearInterval(timer); };
-  }, []);
+  }
 
+  useEffect(function () {
+    resetTimer();
+    return function () { clearInterval(timerRef.current); };
+  }, []);
 
 
 async function handleWhatsApp(buttonName) {
@@ -131,28 +139,63 @@ async function handleWhatsApp(buttonName) {
   const utm_adset = urlParams.get('utm_adset') || '';
   const utm_ad = urlParams.get('utm_ad') || '';
 
-  console.log(urlParams, utm_campign, utm_ad);
-
-  let token = null;
-
-  
-
-  if (utm_campign || utm_adset || utm_ad) {
-    setIsGeneratingToken(true);
-    try {
-      // const apiUrl = `http://localhost:3000/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
-      const apiUrl = `https://api.drexpertedu.com/neet-exam/api/track-utm?utm_campaign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      if (data.success) token = data.token;
-    } catch (error) {
-      console.error("Error tracking UTM:", error);
+  function handleWhatsApp(buttonName) {
+    if (token) {
+        window.openWhatsApp(buttonName, token);
+    } else {
+      setIsGeneratingToken(true)
+      setRetry(!retry)
     }
-    setIsGeneratingToken(false);
   }
 
-  window.openWhatsApp(buttonName, token);
-}
+ 
+
+  useEffect(() => {
+    if (!token) {
+
+
+      
+
+      async function handleWhatsAppApi() {
+        console.log("Hello world")
+        const urlParams = new URLSearchParams(window.location.search);
+        const utm_campign = urlParams.get('utm_campaign') || '';
+        const utm_adset = urlParams.get('utm_adset') || '';
+        const utm_ad = urlParams.get('utm_ad') || '';
+    
+        console.log(urlParams);
+
+        console.log("Params");
+        console.log(utm_campign);
+        console.log(utm_ad);
+        console.log(utm_adset);
+        
+    
+        let token = null;
+    
+        // https://landing.drexpertedu.com/?utm_source=facebook&utm_campaign=Georgia+%7C+website+%7C+engmt+%7C+16/05/26&utm_adset=Georgia+%7C+website+%7C+Kerala+%7C+engmt+%7C+Ad+Set&utm_ad=Georgia+%7C+Kerala+%7C+Cr+1+%7C+Poster+common&fbclid=PAVERFWASks0tleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafa6srdX8hQFHK_SUh1nKbwaEVTUXEmIiP1jhEYXQkFgGRIJapYTT_6MXMk0g_aem_w86XXDx-QW2e9m-2lawyPg
+    
+        if (utm_campign || utm_adset || utm_ad) {
+          // setIsGeneratingToken(true);
+          try { 
+            // const apiUrl = `http://localhost:3000/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
+            const apiUrl = `https://api.drexpertedu.com/neet-exam/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            if (data.success) token = data.token;
+          } catch (error) {
+            console.error("Error tracking UTM:", error);
+          }
+          // setIsGeneratingToken(false);
+        }
+    
+        setToken(token)
+        setIsGeneratingToken(false)
+      }
+
+      handleWhatsAppApi()
+    }
+  },[retry])
 
   return (
     <div style={{ fontFamily: "'Inter', sans-serif", background: '#f5f5f5', color: '#0a0a0a', overflowX: 'hidden', minHeight: '100vh' }}>
@@ -507,7 +550,7 @@ async function handleWhatsApp(buttonName) {
               return (
                 <button
                   key={i}
-                  onClick={function () { setCurrent(i); }}
+                  onClick={function () { setCurrent(i); resetTimer(); }}
                   aria-label={'Review ' + (i + 1)}
                   style={{
                     width: 10,
