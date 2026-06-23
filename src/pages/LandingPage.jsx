@@ -132,6 +132,12 @@ function LandingPage() {
   }, []);
 
 
+async function handleWhatsApp(buttonName) {
+  console.log("Hello world")
+  const urlParams = new URLSearchParams(window.location.search);
+  const utm_campign = urlParams.get('utm_campaign') || '';
+  const utm_adset = urlParams.get('utm_adset') || '';
+  const utm_ad = urlParams.get('utm_ad') || '';
 
   function handleWhatsApp(buttonName) {
     if (token) {
