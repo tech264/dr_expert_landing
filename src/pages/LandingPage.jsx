@@ -132,74 +132,68 @@ function LandingPage() {
   }, []);
 
 
-async function handleWhatsApp(buttonName) {
-  console.log("Hello world")
-  const urlParams = new URLSearchParams(window.location.search);
-  const utm_campign = urlParams.get('utm_campaign') || '';
-  const utm_adset = urlParams.get('utm_adset') || '';
-  const utm_ad = urlParams.get('utm_ad') || '';
-
   function handleWhatsApp(buttonName) {
     if (token) {
-        window.openWhatsApp(buttonName, token);
+      window.openWhatsApp(buttonName, token);
     } else {
       setIsGeneratingToken(true)
       setRetry(!retry)
     }
   }
+   
 
  
 
-  useEffect(() => {
-    if (!token) {
+    useEffect(() => {
+      if (!token) {
 
 
       
 
-      async function handleWhatsAppApi() {
-        console.log("Hello world")
-        const urlParams = new URLSearchParams(window.location.search);
-        const utm_campign = urlParams.get('utm_campaign') || '';
-        const utm_adset = urlParams.get('utm_adset') || '';
-        const utm_ad = urlParams.get('utm_ad') || '';
+        async function handleWhatsAppApi() {
+          console.log("Hello world")
+          const urlParams = new URLSearchParams(window.location.search);
+          const utm_campign = urlParams.get('utm_campaign') || '';
+          const utm_adset = urlParams.get('utm_adset') || '';
+          const utm_ad = urlParams.get('utm_ad') || '';
     
-        console.log(urlParams);
+          console.log(urlParams);
 
-        console.log("Params");
-        console.log(utm_campign);
-        console.log(utm_ad);
-        console.log(utm_adset);
+          console.log("Params");
+          console.log(utm_campign);
+          console.log(utm_ad);
+          console.log(utm_adset);
         
     
-        let token = null;
+          let token = null;
     
-        // https://landing.drexpertedu.com/?utm_source=facebook&utm_campaign=Georgia+%7C+website+%7C+engmt+%7C+16/05/26&utm_adset=Georgia+%7C+website+%7C+Kerala+%7C+engmt+%7C+Ad+Set&utm_ad=Georgia+%7C+Kerala+%7C+Cr+1+%7C+Poster+common&fbclid=PAVERFWASks0tleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafa6srdX8hQFHK_SUh1nKbwaEVTUXEmIiP1jhEYXQkFgGRIJapYTT_6MXMk0g_aem_w86XXDx-QW2e9m-2lawyPg
+          // https://landing.drexpertedu.com/?utm_source=facebook&utm_campaign=Georgia+%7C+website+%7C+engmt+%7C+16/05/26&utm_adset=Georgia+%7C+website+%7C+Kerala+%7C+engmt+%7C+Ad+Set&utm_ad=Georgia+%7C+Kerala+%7C+Cr+1+%7C+Poster+common&fbclid=PAVERFWASks0tleHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafa6srdX8hQFHK_SUh1nKbwaEVTUXEmIiP1jhEYXQkFgGRIJapYTT_6MXMk0g_aem_w86XXDx-QW2e9m-2lawyPg
     
-        if (utm_campign || utm_adset || utm_ad) {
-          // setIsGeneratingToken(true);
-          try { 
-            // const apiUrl = `http://localhost:3000/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
-            const apiUrl = `https://api.drexpertedu.com/neet-exam/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            if (data.success) token = data.token;
-          } catch (error) {
-            console.error("Error tracking UTM:", error);
+          if (utm_campign || utm_adset || utm_ad) {
+            // setIsGeneratingToken(true);
+            try {
+              // const apiUrl = `http://localhost:3000/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
+              const apiUrl = `https://api.drexpertedu.com/neet-exam/api/track-utm?utm_campign=${encodeURIComponent(utm_campign)}&utm_adset=${encodeURIComponent(utm_adset)}&utm_ad=${encodeURIComponent(utm_ad)}`;
+              const response = await fetch(apiUrl);
+              const data = await response.json();
+              if (data.success) token = data.token;
+            } catch (error) {
+              console.error("Error tracking UTM:", error);
+            }
+            // setIsGeneratingToken(false);
           }
-          // setIsGeneratingToken(false);
-        }
     
-        setToken(token)
-        setIsGeneratingToken(false)
+          setToken(token)
+          setIsGeneratingToken(false)
+        }
+
+        handleWhatsAppApi()
       }
+    }, [retry])
 
-      handleWhatsAppApi()
-    }
-  },[retry])
-
-  return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: '#f5f5f5', color: '#0a0a0a', overflowX: 'hidden', minHeight: '100vh' }}>
-      <style>{`
+    return (
+      <div style={{ fontFamily: "'Inter', sans-serif", background: '#f5f5f5', color: '#0a0a0a', overflowX: 'hidden', minHeight: '100vh' }}>
+        <style>{`
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         body { margin: 0; }
         @keyframes pulse {
@@ -208,581 +202,581 @@ async function handleWhatsApp(buttonName) {
         }
       `}</style>
 
-      {/* ─── HEADER ─── */}
-      <header
-        style={{
-          background: '#0a0a0a',
-          padding: '14px 20px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderBottom: '3px solid #febf1b',
-        }}
-      >
-        <img
-          src="https://www.drexpertedu.com/_next/image/?url=%2Fimages%2Flogo.png&w=256&q=75"
-          alt="Dr. Expert Edulinks"
-          style={{ height: 64, width: 'auto', display: 'block' }}
-        />
-      </header>
-
-      {/* ─── HERO ─── */}
-      <section
-        style={{
-          background: '#0a0a0a',
-          textAlign: 'center',
-          padding: '36px 24px 20px',
-        }}
-      >
-        <h1
+        {/* ─── HEADER ─── */}
+        <header
           style={{
-            fontSize: '1.8rem',
-            fontWeight: 900,
-            color: '#fff',
-            lineHeight: 1.25,
-            marginBottom: 14,
+            background: '#0a0a0a',
+            padding: '14px 20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderBottom: '3px solid #febf1b',
           }}
         >
-          Study{' '}
-          <span
-            style={{
-              color: '#febf1b',
-              background: 'rgba(254,191,27,.12)',
-              borderRadius: 8,
-              padding: '2px 8px',
-              display: 'inline',
-            }}
-          >
-            MBBS Abroad
-          </span>
-          <br />
-          with Doctor-Led Guidance
-        </h1>
-        <p
+          <img
+            src="https://www.drexpertedu.com/_next/image/?url=%2Fimages%2Flogo.png&w=256&q=75"
+            alt="Dr. Expert Edulinks"
+            style={{ height: 64, width: 'auto', display: 'block' }}
+          />
+        </header>
+
+        {/* ─── HERO ─── */}
+        <section
           style={{
-            fontSize: '.95rem',
-            color: '#a0a0a0',
-            fontWeight: 500,
-            lineHeight: 1.7,
-            marginBottom: 0,
-            maxWidth: 360,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-        >
-          Trusted by <strong style={{ color: '#fff', fontWeight: 700 }}>5,000+ students</strong> across the world for MBBS Abroad —
-          Admissions in <strong style={{ color: '#fff', fontWeight: 700 }}>Europe, Egypt, Uzbekistan, Georgia, Romania</strong> and more
-        </p>
-      </section>
-
-      {/* ─── WHATSAPP BUTTON ─── */}
-      <div
-        style={{
-          background: '#0a0a0a',
-          padding: '12px 20px 16px',
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <a
-          style={{ ...btnWaStyle, ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}) }}
-          onClick={function (e) { e.preventDefault(); handleWhatsApp('hero_cta'); }}
-          href="#"
-        >
-          {waIcon}
-          Chat on WhatsApp Now
-        </a>
-      </div>
-
-      {/* ─── BADGES ─── */}
-      <div
-        style={{
-          background: '#0a0a0a',
-          padding: '0 20px 28px',
-          display: 'flex',
-          justifyContent: 'center',
-          gap: 16,
-          flexWrap: 'wrap',
-        }}
-      >
-        <span style={{ color: '#a0a0a0', fontSize: '.78rem', fontWeight: 600 }}>
-          {'\u2713'} Free Consultation
-        </span>
-        <span style={{ color: '#a0a0a0', fontSize: '.78rem', fontWeight: 600 }}>
-          {'\u2713'} Doctor-Led Team
-        </span>
-        <span style={{ color: '#a0a0a0', fontSize: '.78rem', fontWeight: 600 }}>
-          {'\u2713'} 60+ Countries
-        </span>
-        <span style={{ color: '#a0a0a0', fontSize: '.78rem', fontWeight: 600 }}>
-          {'\u2713'} 24/7 Support
-        </span>
-      </div>
-
-      {/* ─── TRUST CARDS ─── */}
-      <div style={{ background: '#0a0a0a', padding: '0 20px 32px' }}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 12,
-            maxWidth: 420,
-            margin: '0 auto',
-          }}
-        >
-          <div
-            style={{
-              background: '#1e1e1e',
-              border: '1.5px solid #febf1b',
-              borderRadius: 14,
-              padding: '16px 12px',
-              textAlign: 'center',
-            }}
-          >
-            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#febf1b', lineHeight: 1 }}>
-              4.8 {'\u2605'}
-            </div>
-            <div style={{ fontSize: '.7rem', fontWeight: 700, color: '#a0a0a0', marginTop: 6, lineHeight: 1.3 }}>
-              Google Rating
-            </div>
-          </div>
-          <div
-            style={{
-              background: '#1e1e1e',
-              border: '1.5px solid #febf1b',
-              borderRadius: 14,
-              padding: '16px 12px',
-              textAlign: 'center',
-            }}
-          >
-            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#febf1b', lineHeight: 1 }}>
-              5,000+
-            </div>
-            <div style={{ fontSize: '.7rem', fontWeight: 700, color: '#a0a0a0', marginTop: 6, lineHeight: 1.3 }}>
-              Students Placed Abroad
-            </div>
-          </div>
-          <div
-            style={{
-              background: '#1e1e1e',
-              border: '1.5px solid #febf1b',
-              borderRadius: 14,
-              padding: '16px 12px',
-              textAlign: 'center',
-            }}
-          >
-            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#febf1b', lineHeight: 1 }}>
-              11+ Yrs
-            </div>
-            <div style={{ fontSize: '.7rem', fontWeight: 700, color: '#a0a0a0', marginTop: 6, lineHeight: 1.3 }}>
-              Experience
-            </div>
-          </div>
-          <div
-            style={{
-              background: '#1e1e1e',
-              border: '1.5px solid #febf1b',
-              borderRadius: 14,
-              padding: '16px 12px',
-              textAlign: 'center',
-            }}
-          >
-            <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#febf1b', lineHeight: 1 }}>
-              Doctor
-            </div>
-            <div style={{ fontSize: '.7rem', fontWeight: 700, color: '#a0a0a0', marginTop: 6, lineHeight: 1.3 }}>
-              Led MBBS Consultancy
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* ─── WHY CHOOSE US ─── */}
-      <section style={{ background: '#fff', padding: '32px 24px' }}>
-        <div
-          style={{
+            background: '#0a0a0a',
             textAlign: 'center',
-            fontSize: '.7rem',
-            fontWeight: 800,
-            letterSpacing: '1.5px',
-            textTransform: 'uppercase',
-            color: '#f0b010',
-            marginBottom: 18,
+            padding: '36px 24px 20px',
           }}
         >
-          Why Choose Us
-        </div>
-        <ul style={{ listStyle: 'none', maxWidth: 480, margin: '0 auto 24px' }}>
-          <li style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 14, fontSize: '.97rem', fontWeight: 600, color: '#0a0a0a', lineHeight: 1.5 }}>
-            {checkIcon}
-            Doctor-led guidance — 11+ years of experience
-          </li>
-          <li style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 14, fontSize: '.97rem', fontWeight: 600, color: '#0a0a0a', lineHeight: 1.5 }}>
-            {checkIcon}
-            5,000+ students successfully placed abroad
-          </li>
-          <li style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 14, fontSize: '.97rem', fontWeight: 600, color: '#0a0a0a', lineHeight: 1.5 }}>
-            {checkIcon}
-            NMC approved universities in 60+ countries
-          </li>
-          <li style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 14, fontSize: '.97rem', fontWeight: 600, color: '#0a0a0a', lineHeight: 1.5 }}>
-            {checkIcon}
-            Visa, documentation &amp; 24/7 support included
-          </li>
-        </ul>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <h1
+            style={{
+              fontSize: '1.8rem',
+              fontWeight: 900,
+              color: '#fff',
+              lineHeight: 1.25,
+              marginBottom: 14,
+            }}
+          >
+            Study{' '}
+            <span
+              style={{
+                color: '#febf1b',
+                background: 'rgba(254,191,27,.12)',
+                borderRadius: 8,
+                padding: '2px 8px',
+                display: 'inline',
+              }}
+            >
+              MBBS Abroad
+            </span>
+            <br />
+            with Doctor-Led Guidance
+          </h1>
+          <p
+            style={{
+              fontSize: '.95rem',
+              color: '#a0a0a0',
+              fontWeight: 500,
+              lineHeight: 1.7,
+              marginBottom: 0,
+              maxWidth: 360,
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
+            Trusted by <strong style={{ color: '#fff', fontWeight: 700 }}>5,000+ students</strong> across the world for MBBS Abroad —
+            Admissions in <strong style={{ color: '#fff', fontWeight: 700 }}>Europe, Egypt, Uzbekistan, Georgia, Romania</strong> and more
+          </p>
+        </section>
+
+        {/* ─── WHATSAPP BUTTON ─── */}
+        <div
+          style={{
+            background: '#0a0a0a',
+            padding: '12px 20px 16px',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
           <a
             style={{ ...btnWaStyle, ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}) }}
-            onClick={function (e) { e.preventDefault(); handleWhatsApp('why_cta'); }}
+            onClick={function (e) { e.preventDefault(); handleWhatsApp('hero_cta'); }}
             href="#"
           >
             {waIcon}
-            Get Free Consultation on WhatsApp
+            Chat on WhatsApp Now
           </a>
         </div>
-      </section>
 
-      {/* ─── STRIPE ─── */}
-      <div
-        style={{
-          background: '#febf1b',
-          textAlign: 'center',
-          padding: '14px 20px',
-          fontSize: '.9rem',
-          fontWeight: 800,
-          color: '#0a0a0a',
-        }}
-      >
-        Be a Doctor — Guided by Doctors. 100% Transparent Process.
-      </div>
-
-      {/* ─── STUDENT SUCCESS STORIES ─── */}
-      <section style={{ background: '#fff', padding: '32px 20px' }}>
+        {/* ─── BADGES ─── */}
         <div
           style={{
-            textAlign: 'center',
-            fontSize: '.7rem',
-            fontWeight: 800,
-            letterSpacing: '1.5px',
-            textTransform: 'uppercase',
-            color: '#f0b010',
-            marginBottom: 18,
+            background: '#0a0a0a',
+            padding: '0 20px 28px',
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 16,
+            flexWrap: 'wrap',
           }}
         >
-          Student Success Stories
+          <span style={{ color: '#a0a0a0', fontSize: '.78rem', fontWeight: 600 }}>
+            {'\u2713'} Free Consultation
+          </span>
+          <span style={{ color: '#a0a0a0', fontSize: '.78rem', fontWeight: 600 }}>
+            {'\u2713'} Doctor-Led Team
+          </span>
+          <span style={{ color: '#a0a0a0', fontSize: '.78rem', fontWeight: 600 }}>
+            {'\u2713'} 60+ Countries
+          </span>
+          <span style={{ color: '#a0a0a0', fontSize: '.78rem', fontWeight: 600 }}>
+            {'\u2713'} 24/7 Support
+          </span>
         </div>
-        <div style={{ maxWidth: 480, margin: '0 auto', textAlign: 'center' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 8 }}>
-            {googleLogo}
-            <span style={{ fontSize: '.85rem', fontWeight: 700, color: '#0a0a0a' }}>Google Reviews</span>
-          </div>
-          <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#0a0a0a', lineHeight: 1 }}>4.8</div>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 4, margin: '6px 0 4px' }}>
-            {starIcon}
-            {starIcon}
-            {starIcon}
-            {starIcon}
-            {starIcon}
-          </div>
-          <p style={{ fontSize: '.82rem', color: '#a0a0a0', fontWeight: 600, marginBottom: 20 }}>
-            1,000+ Reviews on Google
-          </p>
 
-          {/* Testimonials */}
-          {testimonials.map(function (t, i) {
-            return (
-              <div
-                key={t.id}
-                className="testimonial"
-                style={{
-                  display: i === current ? 'block' : 'none',
-                  background: '#f9f9f9',
-                  borderRadius: 14,
-                  padding: '18px 16px',
-                  textAlign: 'left',
-                  borderLeft: '4px solid #febf1b',
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10 }}>
-                  <div
-                    style={{
-                      width: 42,
-                      height: 42,
-                      borderRadius: '50%',
-                      background: t.avatar ? '#0a0a0a' : (t.avatarBg || '#0a0a0a'),
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontWeight: 800,
-                      fontSize: '1rem',
-                      color: '#fff',
-                      flexShrink: 0,
-                      overflow: 'hidden',
-                    }}
-                  >
-                    {t.avatar ? (
-                      <img src={t.avatar} alt={t.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                    ) : (
-                      t.initial
-                    )}
-                  </div>
-                  <div>
-                    <div style={{ color: '#0a0a0a', fontWeight: 800, fontSize: '.95rem' }}>{t.name}</div>
-                    <div style={{ color: '#a0a0a0', fontSize: '.75rem', marginTop: 1 }}>{t.reviewCount}</div>
-                  </div>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 3, flexWrap: 'wrap', marginBottom: 8 }}>
-                  {smallStarIcon}
-                  {smallStarIcon}
-                  {smallStarIcon}
-                  {smallStarIcon}
-                  {smallStarIcon}
-                  <span style={{ color: '#a0a0a0', fontSize: '.73rem', marginLeft: 4 }}>· {t.ago}</span>
-                </div>
-                <p style={{ fontSize: '.88rem', color: '#0a0a0a', lineHeight: 1.7 }}>{t.text}</p>
+        {/* ─── TRUST CARDS ─── */}
+        <div style={{ background: '#0a0a0a', padding: '0 20px 32px' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 12,
+              maxWidth: 420,
+              margin: '0 auto',
+            }}
+          >
+            <div
+              style={{
+                background: '#1e1e1e',
+                border: '1.5px solid #febf1b',
+                borderRadius: 14,
+                padding: '16px 12px',
+                textAlign: 'center',
+              }}
+            >
+              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#febf1b', lineHeight: 1 }}>
+                4.8 {'\u2605'}
               </div>
-            );
-          })}
-
-          {/* Dots */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: 7, marginTop: 16 }}>
-            {testimonials.map(function (_, i) {
-              return (
-                <button
-                  key={i}
-                  onClick={function () { setCurrent(i); resetTimer(); }}
-                  aria-label={'Review ' + (i + 1)}
-                  style={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: '50%',
-                    background: i === current ? '#f0b010' : '#d0d0d0',
-                    cursor: 'pointer',
-                    transition: 'background .2s, transform .2s',
-                    border: 'none',
-                    padding: 0,
-                    transform: i === current ? 'scale(1.35)' : 'scale(1)',
-                  }}
-                />
-              );
-            })}
+              <div style={{ fontSize: '.7rem', fontWeight: 700, color: '#a0a0a0', marginTop: 6, lineHeight: 1.3 }}>
+                Google Rating
+              </div>
+            </div>
+            <div
+              style={{
+                background: '#1e1e1e',
+                border: '1.5px solid #febf1b',
+                borderRadius: 14,
+                padding: '16px 12px',
+                textAlign: 'center',
+              }}
+            >
+              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#febf1b', lineHeight: 1 }}>
+                5,000+
+              </div>
+              <div style={{ fontSize: '.7rem', fontWeight: 700, color: '#a0a0a0', marginTop: 6, lineHeight: 1.3 }}>
+                Students Placed Abroad
+              </div>
+            </div>
+            <div
+              style={{
+                background: '#1e1e1e',
+                border: '1.5px solid #febf1b',
+                borderRadius: 14,
+                padding: '16px 12px',
+                textAlign: 'center',
+              }}
+            >
+              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#febf1b', lineHeight: 1 }}>
+                11+ Yrs
+              </div>
+              <div style={{ fontSize: '.7rem', fontWeight: 700, color: '#a0a0a0', marginTop: 6, lineHeight: 1.3 }}>
+                Experience
+              </div>
+            </div>
+            <div
+              style={{
+                background: '#1e1e1e',
+                border: '1.5px solid #febf1b',
+                borderRadius: 14,
+                padding: '16px 12px',
+                textAlign: 'center',
+              }}
+            >
+              <div style={{ fontSize: '1.5rem', fontWeight: 900, color: '#febf1b', lineHeight: 1 }}>
+                Doctor
+              </div>
+              <div style={{ fontSize: '.7rem', fontWeight: 700, color: '#a0a0a0', marginTop: 6, lineHeight: 1.3 }}>
+                Led MBBS Consultancy
+              </div>
+            </div>
           </div>
+        </div>
 
-          <div style={{ marginTop: 24, display: 'flex', justifyContent: 'center' }}>
+        {/* ─── WHY CHOOSE US ─── */}
+        <section style={{ background: '#fff', padding: '32px 24px' }}>
+          <div
+            style={{
+              textAlign: 'center',
+              fontSize: '.7rem',
+              fontWeight: 800,
+              letterSpacing: '1.5px',
+              textTransform: 'uppercase',
+              color: '#f0b010',
+              marginBottom: 18,
+            }}
+          >
+            Why Choose Us
+          </div>
+          <ul style={{ listStyle: 'none', maxWidth: 480, margin: '0 auto 24px' }}>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 14, fontSize: '.97rem', fontWeight: 600, color: '#0a0a0a', lineHeight: 1.5 }}>
+              {checkIcon}
+              Doctor-led guidance — 11+ years of experience
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 14, fontSize: '.97rem', fontWeight: 600, color: '#0a0a0a', lineHeight: 1.5 }}>
+              {checkIcon}
+              5,000+ students successfully placed abroad
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 14, fontSize: '.97rem', fontWeight: 600, color: '#0a0a0a', lineHeight: 1.5 }}>
+              {checkIcon}
+              NMC approved universities in 60+ countries
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: 10, marginBottom: 14, fontSize: '.97rem', fontWeight: 600, color: '#0a0a0a', lineHeight: 1.5 }}>
+              {checkIcon}
+              Visa, documentation &amp; 24/7 support included
+            </li>
+          </ul>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
             <a
               style={{ ...btnWaStyle, ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}) }}
-              onClick={function (e) { e.preventDefault(); handleWhatsApp('reviews_cta'); }}
+              onClick={function (e) { e.preventDefault(); handleWhatsApp('why_cta'); }}
               href="#"
             >
               {waIcon}
-              Join 1,000+ Students — Chat Now
+              Get Free Consultation on WhatsApp
+            </a>
+          </div>
+        </section>
+
+        {/* ─── STRIPE ─── */}
+        <div
+          style={{
+            background: '#febf1b',
+            textAlign: 'center',
+            padding: '14px 20px',
+            fontSize: '.9rem',
+            fontWeight: 800,
+            color: '#0a0a0a',
+          }}
+        >
+          Be a Doctor — Guided by Doctors. 100% Transparent Process.
+        </div>
+
+        {/* ─── STUDENT SUCCESS STORIES ─── */}
+        <section style={{ background: '#fff', padding: '32px 20px' }}>
+          <div
+            style={{
+              textAlign: 'center',
+              fontSize: '.7rem',
+              fontWeight: 800,
+              letterSpacing: '1.5px',
+              textTransform: 'uppercase',
+              color: '#f0b010',
+              marginBottom: 18,
+            }}
+          >
+            Student Success Stories
+          </div>
+          <div style={{ maxWidth: 480, margin: '0 auto', textAlign: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 8 }}>
+              {googleLogo}
+              <span style={{ fontSize: '.85rem', fontWeight: 700, color: '#0a0a0a' }}>Google Reviews</span>
+            </div>
+            <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#0a0a0a', lineHeight: 1 }}>4.8</div>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 4, margin: '6px 0 4px' }}>
+              {starIcon}
+              {starIcon}
+              {starIcon}
+              {starIcon}
+              {starIcon}
+            </div>
+            <p style={{ fontSize: '.82rem', color: '#a0a0a0', fontWeight: 600, marginBottom: 20 }}>
+              1,000+ Reviews on Google
+            </p>
+
+            {/* Testimonials */}
+            {testimonials.map(function (t, i) {
+              return (
+                <div
+                  key={t.id}
+                  className="testimonial"
+                  style={{
+                    display: i === current ? 'block' : 'none',
+                    background: '#f9f9f9',
+                    borderRadius: 14,
+                    padding: '18px 16px',
+                    textAlign: 'left',
+                    borderLeft: '4px solid #febf1b',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 10 }}>
+                    <div
+                      style={{
+                        width: 42,
+                        height: 42,
+                        borderRadius: '50%',
+                        background: t.avatar ? '#0a0a0a' : (t.avatarBg || '#0a0a0a'),
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontWeight: 800,
+                        fontSize: '1rem',
+                        color: '#fff',
+                        flexShrink: 0,
+                        overflow: 'hidden',
+                      }}
+                    >
+                      {t.avatar ? (
+                        <img src={t.avatar} alt={t.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        t.initial
+                      )}
+                    </div>
+                    <div>
+                      <div style={{ color: '#0a0a0a', fontWeight: 800, fontSize: '.95rem' }}>{t.name}</div>
+                      <div style={{ color: '#a0a0a0', fontSize: '.75rem', marginTop: 1 }}>{t.reviewCount}</div>
+                    </div>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 3, flexWrap: 'wrap', marginBottom: 8 }}>
+                    {smallStarIcon}
+                    {smallStarIcon}
+                    {smallStarIcon}
+                    {smallStarIcon}
+                    {smallStarIcon}
+                    <span style={{ color: '#a0a0a0', fontSize: '.73rem', marginLeft: 4 }}>· {t.ago}</span>
+                  </div>
+                  <p style={{ fontSize: '.88rem', color: '#0a0a0a', lineHeight: 1.7 }}>{t.text}</p>
+                </div>
+              );
+            })}
+
+            {/* Dots */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 7, marginTop: 16 }}>
+              {testimonials.map(function (_, i) {
+                return (
+                  <button
+                    key={i}
+                    onClick={function () { setCurrent(i); resetTimer(); }}
+                    aria-label={'Review ' + (i + 1)}
+                    style={{
+                      width: 10,
+                      height: 10,
+                      borderRadius: '50%',
+                      background: i === current ? '#f0b010' : '#d0d0d0',
+                      cursor: 'pointer',
+                      transition: 'background .2s, transform .2s',
+                      border: 'none',
+                      padding: 0,
+                      transform: i === current ? 'scale(1.35)' : 'scale(1)',
+                    }}
+                  />
+                );
+              })}
+            </div>
+
+            <div style={{ marginTop: 24, display: 'flex', justifyContent: 'center' }}>
+              <a
+                style={{ ...btnWaStyle, ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}) }}
+                onClick={function (e) { e.preventDefault(); handleWhatsApp('reviews_cta'); }}
+                href="#"
+              >
+                {waIcon}
+                Join 1,000+ Students — Chat Now
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── TOP DESTINATIONS ─── */}
+        <section style={{ background: '#0a0a0a', padding: '32px 20px' }}>
+          <div
+            style={{
+              textAlign: 'center',
+              fontSize: '.7rem',
+              fontWeight: 800,
+              letterSpacing: '1.5px',
+              textTransform: 'uppercase',
+              color: '#f0b010',
+              marginBottom: 18,
+            }}
+          >
+            Top Destinations
+          </div>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 10,
+              maxWidth: 420,
+              margin: '0 auto 24px',
+            }}
+          >
+            {countries.map(function (c, i) {
+              return (
+                <div
+                  key={i}
+                  style={{
+                    background: '#1e1e1e',
+                    border: '1px solid #2e2e2e',
+                    borderRadius: 12,
+                    padding: '14px 12px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 10,
+                  }}
+                >
+                  <span style={{ fontSize: '1.6rem', lineHeight: 1, flexShrink: 0 }}>
+                    {c.flag}
+                  </span>
+                  <div>
+                    <div style={{ fontSize: '.88rem', fontWeight: 700, color: '#fff' }}>{c.name}</div>
+                    <div style={{ fontSize: '.65rem', fontWeight: 600, color: '#a0a0a0', marginTop: 2 }}>{c.tag}</div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          <p
+            style={{
+              textAlign: 'center',
+              color: '#a0a0a0',
+              fontSize: '.82rem',
+              fontWeight: 600,
+              marginBottom: 24,
+            }}
+          >
+            + <span style={{ color: '#febf1b', fontWeight: 800 }}>54 more countries</span> available — ask us on WhatsApp
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <a
+              style={{ ...btnWaStyle, ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}) }}
+              onClick={function (e) { e.preventDefault(); handleWhatsApp('countries_cta'); }}
+              href="#"
+            >
+              {waIcon}
+              Explore All Countries on WhatsApp
+            </a>
+          </div>
+        </section>
+
+        {/* ─── URGENCY ─── */}
+        <div style={{ background: '#0a0a0a', padding: '0 20px 32px' }}>
+          <div
+            style={{
+              border: '1.5px solid #febf1b',
+              borderRadius: 20,
+              padding: '24px 20px',
+              textAlign: 'center',
+              maxWidth: 480,
+              margin: '0 auto',
+            }}
+          >
+            <div
+              style={{
+                fontSize: '1.4rem',
+                fontWeight: 900,
+                color: '#febf1b',
+                marginBottom: 8,
+                lineHeight: 1.25,
+              }}
+            >
+              🔥 MBBS Seats Filling Fast
+            </div>
+            <div
+              style={{
+                fontSize: '.92rem',
+                color: '#fff',
+                fontWeight: 600,
+                marginBottom: 20,
+                lineHeight: 1.5,
+              }}
+            >
+              Seats are filling fast in NMC approved universities
+            </div>
+            <a
+              style={{
+                ...btnWaStyle,
+                background: '#1a8c44',
+                fontSize: '.88rem',
+                padding: '13px 20px',
+                boxShadow: '0 4px 16px rgba(0,0,0,.3)',
+                ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}),
+              }}
+              onClick={function (e) { e.preventDefault(); handleWhatsApp('urgency_cta'); }}
+              href="#"
+            >
+              <svg viewBox="0 0 24 24" fill="white" style={{ width: 20, height: 20, flexShrink: 0 }}>
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z" />
+              </svg>
+              Reserve My Seat on WhatsApp
             </a>
           </div>
         </div>
-      </section>
 
-      {/* ─── TOP DESTINATIONS ─── */}
-      <section style={{ background: '#0a0a0a', padding: '32px 20px' }}>
-        <div
+        {/* ─── FOOTER ─── */}
+        <footer
           style={{
-            textAlign: 'center',
-            fontSize: '.7rem',
-            fontWeight: 800,
-            letterSpacing: '1.5px',
-            textTransform: 'uppercase',
-            color: '#f0b010',
-            marginBottom: 18,
-          }}
-        >
-          Top Destinations
-        </div>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 10,
-            maxWidth: 420,
-            margin: '0 auto 24px',
-          }}
-        >
-          {countries.map(function (c, i) {
-            return (
-              <div
-                key={i}
-                style={{
-                  background: '#1e1e1e',
-                  border: '1px solid #2e2e2e',
-                  borderRadius: 12,
-                  padding: '14px 12px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 10,
-                }}
-              >
-                <span style={{ fontSize: '1.6rem', lineHeight: 1, flexShrink: 0 }}>
-                  {c.flag}
-                </span>
-                <div>
-                  <div style={{ fontSize: '.88rem', fontWeight: 700, color: '#fff' }}>{c.name}</div>
-                  <div style={{ fontSize: '.65rem', fontWeight: 600, color: '#a0a0a0', marginTop: 2 }}>{c.tag}</div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <p
-          style={{
-            textAlign: 'center',
+            background: '#141414',
             color: '#a0a0a0',
-            fontSize: '.82rem',
-            fontWeight: 600,
-            marginBottom: 24,
+            textAlign: 'center',
+            padding: '20px 20px 90px',
+            fontSize: '.78rem',
+            borderTop: '1px solid #222',
           }}
         >
-          + <span style={{ color: '#febf1b', fontWeight: 800 }}>54 more countries</span> available — ask us on WhatsApp
-        </p>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <a
-            style={{ ...btnWaStyle, ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}) }}
-            onClick={function (e) { e.preventDefault(); handleWhatsApp('countries_cta'); }}
-            href="#"
-          >
-            {waIcon}
-            Explore All Countries on WhatsApp
-          </a>
-        </div>
-      </section>
+          <p>
+            © 2025{' '}
+            <a
+              href="https://www.drexpertedu.com/"
+              target="_blank"
+              rel="noopener"
+              style={{ color: '#febf1b', textDecoration: 'none' }}
+            >
+              Dr. Expert Edulinks
+            </a>
+            — All rights reserved
+          </p>
+        </footer>
 
-      {/* ─── URGENCY ─── */}
-      <div style={{ background: '#0a0a0a', padding: '0 20px 32px' }}>
+        {/* ─── STICKY WHATSAPP ─── */}
         <div
           style={{
-            border: '1.5px solid #febf1b',
-            borderRadius: 20,
-            padding: '24px 20px',
-            textAlign: 'center',
-            maxWidth: 480,
-            margin: '0 auto',
+            position: 'fixed',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            background: '#25d366',
+            padding: '14px 20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 10,
+            zIndex: 100,
+            boxShadow: '0 -4px 20px rgba(0,0,0,.25)',
           }}
         >
           <div
             style={{
-              fontSize: '1.4rem',
-              fontWeight: 900,
-              color: '#febf1b',
-              marginBottom: 8,
-              lineHeight: 1.25,
+              width: 10,
+              height: 10,
+              borderRadius: '50%',
+              background: '#fff',
+              flexShrink: 0,
+              animation: 'pulse 1.4s infinite',
             }}
-          >
-            🔥 MBBS Seats Filling Fast
-          </div>
-          <div
-            style={{
-              fontSize: '.92rem',
-              color: '#fff',
-              fontWeight: 600,
-              marginBottom: 20,
-              lineHeight: 1.5,
-            }}
-          >
-            Seats are filling fast in NMC approved universities
-          </div>
+          />
           <a
+            onClick={function (e) { e.preventDefault(); handleWhatsApp('sticky_cta'); }}
+            href="#"
             style={{
-              ...btnWaStyle,
-              background: '#1a8c44',
-              fontSize: '.88rem',
-              padding: '13px 20px',
-              boxShadow: '0 4px 16px rgba(0,0,0,.3)',
+              color: '#fff',
+              fontWeight: 800,
+              fontSize: '1rem',
+              textDecoration: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              gap: 10,
               ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}),
             }}
-            onClick={function (e) { e.preventDefault(); handleWhatsApp('urgency_cta'); }}
-            href="#"
           >
-            <svg viewBox="0 0 24 24" fill="white" style={{ width: 20, height: 20, flexShrink: 0 }}>
+            <svg viewBox="0 0 24 24" fill="white" style={{ width: 24, height: 24, flexShrink: 0 }}>
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
               <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z" />
             </svg>
-            Reserve My Seat on WhatsApp
+            Chat with Admission Advisor Now
           </a>
         </div>
       </div>
-
-      {/* ─── FOOTER ─── */}
-      <footer
-        style={{
-          background: '#141414',
-          color: '#a0a0a0',
-          textAlign: 'center',
-          padding: '20px 20px 90px',
-          fontSize: '.78rem',
-          borderTop: '1px solid #222',
-        }}
-      >
-        <p>
-          © 2025{' '}
-          <a
-            href="https://www.drexpertedu.com/"
-            target="_blank"
-            rel="noopener"
-            style={{ color: '#febf1b', textDecoration: 'none' }}
-          >
-            Dr. Expert Edulinks
-          </a>
-          — All rights reserved
-        </p>
-      </footer>
-
-      {/* ─── STICKY WHATSAPP ─── */}
-      <div
-        style={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          background: '#25d366',
-          padding: '14px 20px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 10,
-          zIndex: 100,
-          boxShadow: '0 -4px 20px rgba(0,0,0,.25)',
-        }}
-      >
-        <div
-          style={{
-            width: 10,
-            height: 10,
-            borderRadius: '50%',
-            background: '#fff',
-            flexShrink: 0,
-            animation: 'pulse 1.4s infinite',
-          }}
-        />
-        <a
-          onClick={function (e) { e.preventDefault(); handleWhatsApp('sticky_cta'); }}
-          href="#"
-          style={{
-            color: '#fff',
-            fontWeight: 800,
-            fontSize: '1rem',
-            textDecoration: 'none',
-            display: 'flex',
-            alignItems: 'center',
-            gap: 10,
-            ...(isGeneratingToken ? { opacity: 0.5, pointerEvents: 'none', cursor: 'not-allowed' } : {}),
-          }}
-        >
-          <svg viewBox="0 0 24 24" fill="white" style={{ width: 24, height: 24, flexShrink: 0 }}>
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.554 4.103 1.523 5.828L.057 23.804a.75.75 0 00.92.92l5.968-1.465A11.942 11.942 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.952-1.355l-.355-.211-3.683.904.923-3.58-.232-.369A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z" />
-          </svg>
-          Chat with Admission Advisor Now
-        </a>
-      </div>
-    </div>
-  );
-}
+    );
+  }
 
 export default LandingPage;
